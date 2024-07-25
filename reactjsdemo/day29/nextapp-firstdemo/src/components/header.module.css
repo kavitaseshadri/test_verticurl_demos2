@@ -1,0 +1,8 @@
+.navstyle {
+  color: yellowgreen;
+  background-color: black;
+}
+.flex_h {
+  display: flex;
+  flex-direction: row;
+}
