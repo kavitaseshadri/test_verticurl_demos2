@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setIntervalDemo2</title>
+    <script>
+        let timerRef;
+        const startTimer = () => {
+            timerRef = setInterval(displayHello, 1000);
+            console.log('timer started');
+        }
+        const stopTimer = () => {
+            clearInterval(timerRef);
+            console.log('timer stopped');
+            document.getElementById("demo").innerHTML = '';
+        }
+        function displayHello() {
+            document.getElementById("demo").innerHTML += `<h2>Hello</h2>`;
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <p id="demo"></p>
+</body>
+
+</html>
