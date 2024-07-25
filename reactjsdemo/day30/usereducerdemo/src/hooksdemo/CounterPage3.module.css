@@ -1,0 +1,21 @@
+.btn {
+  width: 150px;
+  height: 50px;
+  border: none;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.main_div {
+  width: 500px;
+  margin: 10px auto;
+  background-color: black;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+.txt {
+  padding: 10px 20px;
+  font-size: 20px;
+}
