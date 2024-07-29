@@ -17,7 +17,6 @@ const UseRefPlayer = () => {
         <div>
             <video width="520" height="240" ref={videoRef} controls>
                 <source src={videoLink} type="video/mp4" />
-
             </video>
             <button onClick={handlePlay}>Play</button>
             <button onClick={handlePause}>Pause</button>

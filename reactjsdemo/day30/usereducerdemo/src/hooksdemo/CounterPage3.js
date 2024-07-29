@@ -15,6 +15,7 @@ const reducer = (state, action) => {
         }
     }
     //you have to return the state object, even if it has not been changed
+    //don not change the state variable directly!!
     return state;
     //otherwise the properties of the state object will be set to undefined
 }
@@ -27,6 +28,9 @@ const CounterPage3 = ({ initialCount }) => {
         count: initialCount,
         valueToAdd: 0,
     })
+
+    // const [state, dispatchFunction] = useReducer(RefrenceToreducerFunction, initialState,})
+
     console.log(state);
 
     const increment = () => {

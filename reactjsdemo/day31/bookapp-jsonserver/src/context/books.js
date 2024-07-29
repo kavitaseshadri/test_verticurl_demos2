@@ -10,7 +10,7 @@ const Provider = ({ children }) => {
 
     useEffect(() => {
         fetchBooks();
-    }, []);
+    }, books);
 
     //function to get or  fetch all existing records
 

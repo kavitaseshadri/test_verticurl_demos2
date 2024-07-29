@@ -36,7 +36,10 @@ const CounterPage4 = ({ initialCount }) => {
     const [state, dispatch] = useReducer(reducer, {
         count: initialCount,
         valueToAdd: 0,
-    })
+    })//the second argument declares all the state variables and also an initial value for it if required.
+    //dispatch is holding the reference of our reducer function
+    //so we can't call our reducer function directly, we can call it indirectly using dispatch
+
     console.log(state);
 
     const increment = () => {

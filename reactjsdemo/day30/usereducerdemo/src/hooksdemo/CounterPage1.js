@@ -4,6 +4,7 @@ import classes from './CounterPage1.module.css'
 const CounterPage1 = ({ initialCount }) => {
     const [count, setCount] = useState(initialCount);
     const increment = () => {
+        // setCount(count + 1);
         setCount(count => count + 1);
         //setCount((prevValue) => { return prevValue + 1 });
     }
