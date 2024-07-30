@@ -1,0 +1,1509 @@
+30/July/2024-Tuesday
+....................
+
+Microservices:
+
+Overview vc Monolithic application 
+Mini-App-Microservices 
+Docker Intro 
+Dockerization of Mini-App
+Kubernetes Intro 
+Orchestration of Mini-App using Kubernetes
+
+Slightly More Advanced App with a proper Event Bus 
+
+blog-mini-microservices:
+
+client (ReactJS app)
+comments service (Node+Express)
+posts service (Node+Express)
+
+event-bus (Message Broker) (Node+Express)
+query service (Node+Express)
+moderation service (Node+Express)
+
+npm install 
+
+keep open 3 command prompt windows
+one for client, one for posts, one for comments 
+
+nodemon: in a Node+Express, we don't have to stop and re-start the project every single time we make a change
+
+
+29/July/2024-Monday
+...................
+
+Docker initial Commands-
+
+docker version
+docker run hello-world
+
+
+Validation-minor Validation
+how to use useRef to get a direct control over an html element in ReactJS
+props drilling
+
+
+userefportaldialog application 
+Dialog 
+Fragments 
+useRef 
+
+An Empty Wrapper-
+<React.Fragment></React.Fragment>
+<Fragment></Fragment>
+<>
+<h1></h1>
+<ul>
+<li></li>
+</ul>
+</>
+
+
+NextJS-PrismaORM (Relational DB, Server Side Components, Caching, App Router)
+Microservices-ReactJS, Node+Express 
+Docker-Containerization of a Frontend and Backend 
+Kubernetes-Orchestration 
+
+26/July/2024-Friday
+...................
+
+Class cancelled due to floods.
+
+25/July/2024-Thursday
+.....................
+
+
+
+24/July/2024-Wednesday
+.......................
+ReactJS-useState()-we can't do any state mangement for components
+useContext()-its a context that can contain data and functions and can be made available to multiple components simultaneously without props-drilling
+we still have to see, lifting up the state 
+
+
+useEffect()
+useReducer()-is a substitute for useState, when there are multiple inter-linked states to deal with.
+
+useRef()
+Fragments, Portals, Dialogs
+Toggling Component states in UI
+
+
+ReactJS Project using Yarn not NextJS 
+
+
+23/July/2024-Tuesday
+....................
+
+Getting started with NextJS
+yarn create next-app
+
+What is your project named? › nextjs-firstapp
+? Would you like to use TypeScript? › No / Yes (No)
+? Would you like to use ESLint? › No / Yes (Yes)
+? Would you like to use Tailwind CSS? › No / Yes (No)
+? Would you like to use `src/` directory? › No / Yes (Yes)
+? Would you like to use App Router? (recommended) › No / Yes (Yes)
+? Would you like to customize the default import alias (@/*)? › No / Yes (No)
+
+once the creation is successful, switch to the project folder and run-
+yarn dev 
+
+Vercel 
+NextJS 
+
+Directory Structure:
+public 
+src/app 
+layout.js
+page.js
+globals.css
+page.module.css
+
+the home screen is getting rendered from page.js
+
+NextJS allows you to setup multiple pages.
+SSR-Server Side Rendering 
+ReactJS-Client Side Rendering-There are no pre-compiled components in ReactJS
+you can't build SEO friendly pages using ReactJS!!
+
+Caching System for NextJS 
+server side components 
+client side components
+
+Do not change the name of page.js
+also don't change the name of layout.js
+
+How to create a multi page website?
+go to app, and create one folder for each page of your website,
+then add a page.js into that folder
+
+params.slug
+{params}
+
+[slug] folder under a particular category
+
+src/components
+src/app
+
+Assignment: Create a New NEXTJS app-
+to combine Animal, Profile, Book App into 1 project
+
+we need one page.js for Animal
+we need one page.js for Profile
+we need one page.js for Book
+
+'use client' this will be the first line in all the components that try to do event handling or use any ReactJS Hooks
+
+React-Router-DOM 
+
+NEXTJS 
+client components-React Hooks ()
+server components-that want to interact with DB data
+
+
+22/July/2024-Monday
+...................
+
+class cancelled
+
+19/July/2024-Friday
+...................
+
+html tags will detect their children or nested components\
+But our components by default do not detect their children or nested tags.
+
+
+Hooks were designed only for Functional Components
+They are not meant to be used by Class components-lifecycle
+
+In a react application, there can be multiple contexts
+
+Custom Hook-helps you to make your logic re-usable across components 
+Context is applied to Tree of Components 
+whoever needs the functionality from a Custom Hook can use it
+Context goes beyond just  functions, it can also contain data 
+
+{ children }
+
+yarn create next-app
+
+
+useContext-BookApp
+-Centrallization, 
+-We can control who can access it or see it or use it
+useEffect Hook
+JSON Server-BookApp-sharing code 
+Custom Hook
+useReducer 
+useRef
+usePortal
+Navigation-React-Router-DOM
+
+<BookList>
+<BookCreate>
+<BookShow>
+<BookEdit>
+
+<BookApp>-array and CRUD operation functions, props drilling 
+  <BookList>-><BookShow>,<BookEdit>
+  <BookCreate>
+
+
+18/July/2024-Thursday
+.....................
+
+props drilling-Parent tries to pass its' data to the child
+lifting up the state-the parent tries to access a property that is defined in the Child
+
+BookApp1-CRUD done using arrays 
+BookApp-useContext()
+BookApp-CRUD-JSONServer as our backend-useEffect()
+
+Create a Book
+Edit a Book
+Delete a Book
+Fetch all Books 
+
+bookapp-context, expense-app: npm install, npm start
+
+17/July/2024-Wednesday
+......................
+
+When you download my ReactJS or NextJS project, make sure to run npm install
+only then, node_modules will be created
+
+
+ProfileApp
+AnimalApp
+ArrayApp
+BookApp-Standalone, JSONServer, Proper Backend 
+ExpenseApp
+
+Custom Component-how to pass values to it to customize it
+Parent-Child props passing 
+conditional rendering 
+
+How will ProfileApp which is the parent, 
+pass data to ProfileCard which in this context is the child,
+so that it's UI or behaviour can be customized
+
+You can't write conditions or loop in JSX
+Conditional Operator is the only thing that is allowed in JSX
+offer && 
+
+useContext()-
+useEffect()-
+useReducer()-
+
+data resides in ProfileApp8>ProfileList->ProfileCard8
+props drilling 
+
+16/July/2024-Tuesday
+....................
+
+ReactJS
+more examples-
+
+You cannot use any of the traditional DOM logic 
+hacks 
+Component Architecture
+Parent/Child relationship 
+Nesting between tags-
+props drilling
+lifting up the State
+Hooks-
+useState()
+State Management-is done in a twisted way using useState()
+Because I don't have access to the html elements directly,
+
+useState-it's a hook, a hook is basically a JavaScript Function
+
+State management for components is one of them.
+
+destructuring of arrays?
+
+const fruits=['mango','banana','apple','watermelon','orange'];
+const [fruit1,,,fruit4,]=fruits;
+
+let msg="hello";
+
+useState();
+it actually returning an array of two elements
+first item it returns is a variable (state management variable)
+second item it returns is a function to edit that variable
+we can assign initial value to useState()
+
+
+reactjs uses it's own Virtual DOM tree that it links to the original undelying DOM tree.
+
+Problem Statement-
+
+Create a UI with 2 inputs fields to accept 2 numbers 
+also a drop down with 4 options-addition, subtraction,multiplication,division
+a button with caption Submit 
+now depending on what option has been choosen show the calculation of the result in a new text field
+
+Array-Scenarios
+CRUD
+
+
+15/July/2024-Monday
+....................
+
+MERN:
+ReactJS-SPA Single Page Application
+NextJS-Multipage SPA 
+TypeScript
+JSTesting
+GraphQL-RESTful 
+Microservices, Docker, Kubernetes
+Electron
+Web Sockets
+Performace
+Security
+Authentication, Authorization,Error Handling, Validation 
+
+ReactJS-
+UI
+Event Handling 
+State Management
+Component Architecture
+Project Folder structure of React Application 
+node platform 
+
+npx create-react-app
+yarn 
+
+require - CommonJS
+
+import ES6 import system 
+
+Install yarn 
+create a project structure using yarn 
+vite 
+
+NextJS-yarn
+
+yarn is a tool that will help you to create a react project
+but first you need to install yarn itself 
+
+npm install --global yarn
+
+yarn --version 
+
+npm install --global npx 
+
+yarn create react-app reactdemo0
+cd reactdemo0
+yarn start
+
+Project Structure 
+
+We don't do any DOM manipulation 
+
+public/index.html keep it, delete some of the rubbish in it
+src>App.css, App.js,index.css clear it out
+index.js keep it as is
+
+rafce-generates boiler plate code for react functional components
+ES7 React snippets extension(ES7+ React/Redux/React-Native snippets )
+
+Functional components-all the current projects use this
+Class components-when reactjs was first introduced we only had class components
+SPA-Single Page Application 
+
+typically we don't change anything in index.html
+div with id root, this is where our component tree will be inserted!
+so don't delete this
+
+index.js-we will add/change only one thing
+Similary, App.js, we will typically change only one thing
+
+We are going to be creating tons of Custom Functional components
+The client (browser) receives only one reponse in the form of a single html file that is sent only once by the application, unless I referesh my browser
+index.html
+
+App.js 
+App.css 
+
+index.js
+index.css 
+
+One component per file 
+component.js
+component.css 
+
+react takes care of DOM manipulation, you're are not allowed  to do DOM manipulation
+we will never ever use the document object
+
+Hooks-a hook is nothing but a function given to us by React for a specific purpose 
+In the  component file, what we are writing is not html,
+it is a pseudo html called JSX created by the ReactJS Template
+JavaScript and XML 
+
+How to mix programming syntaxes with HTML 
+EJS <%= %>
+
+Library, it is not a framework- so it doesn't impose any strict folder convention
+
+In react, every file is its own module
+so, if you want a component to be visible outside the file, export it, and the other that wants to use the component should import it!
+
+useState()
+CRUD Operations
+Array Functions 
+
+
+
+
+
+12/July/2024-Friday
+...................
+
+ecomm-filebased-it only uses router,also file based storage, HTML Templates
+ecomm-mongoose-it uses both a router and a controller-mongodb through mongoose, EJS
+
+mvc_split1-only routes 
+mvc_split2-both routes and controllers
+
+Contollers, Routes, index.js, Model files 
+
+Authentication
+Validation
+JWT
+Sessions
+Cookies 
+
+
+
+
+
+11/July/2024-Thursday
+.....................
+
+day22
+
+RESTAPI layer-view was not really necessary-any SPA client could have used this 
+
+View-HTML Template( will be useful later with ReactJS), EJS, PUG, Handlebars 
+StudentMVC 
+Hidden Form Field, URL Rewriting, Session Attributes, Cookie 
+
+npm install --save pug ejs express-handlebars 
+
+npm install express body-parser serve-static cookie-parser cookie-session mongodb mongoose --save
+
+e-comm: Node+Express, Microservices Application-M (mongodb, mongoose, file), View (Pug,EJS,Handlebars),Contoller-router
+Middleware-Cookie, Sessions, JWT, Authentication, Authorization, Validation, Error handling
+WebSockets, JSTesting, Docker&Kubernetes, GraphQL, TypeScript, Security, Peformance, ReactJS, NextJS 
+
+nodemon you don't need to start and stop the server 
+it doesn't show errors in a verbose mode for debugging 
+
+package: jsonserver it can work like a document db for you
+
+What forms/HTML pages do we need for our Student Scenario?
+1) display all student records-Edit/Update, Delete 
+2) add Student Form/html page will be empty form 
+3) update Student-will be a Form/html page that would be pre-populated
+4) login
+5) logout
+
+MVC
+
+Model
+View
+Controller-
+Will check send a view page/or some sort of form to accept  data
+then it will read the form
+then it will call the appropriate Model for backend operation
+then it will call another view component to compose a response page
+send this response page back to the user
+
+
+
+10/July/2024-Wednesday
+......................
+
+day21 folder
+
+move StudentRESTApi3 to day21 
+
+run npm init in day21 folder 
+
+npm install express body-parser serve-static cookie-parser cookie-session mongodb mongoose --save
+
+Mongoose-
+
+starts with a Schema definition
+Then we create a Model from the Schema
+Then we use the Model to create objects that need to be perisited
+we don't need to define any methods for basic CRUD and search operation
+
+MongoDB will allow you to store miscellaneus objects in your collection
+Mongoose will only allow homogenous object 
+
+Using MongoDB driver will allow you to store any and all kinds of objects in the same collection
+
+
+
+
+9/July/2024-Tuesday
+...................
+
+StudentRESTful2-using Student Model Class and Mongoose
+StudentMVC-RESTAPI-Model Layer 
+
+
+
+8/July/2024-Monday
+..................
+
+MongoDB-functional Layer for student.js 
+
+db.students.deleteMany({});
+
+
+async/await, Promise 
+MVC with MongoDB Driver 
+Student RESTAPI Layer with MongoDB-functional Layer 
+StudentMVC-RESTAPI-Model Layer 
+StudentSPA-RESTAPI-Model Layer 
+StudentDOMClient-RESTAPI-Model Layer 
+
+MVC 
+StudentRESTful1
+
+day19-
+npm install express --save
+npm install body-parser --save
+npm install serve-static --save
+npm install cookie-parser --save
+npm install cookie-session --save
+npm install mongodb --save
+npm install mongoose --save
+
+npm install express body-parser serve-static cookie-parser cookie-session mongodb mongoose --save
+
+4/July/2024-Thursday
+.....................
+
+npm install mongoose --save
+npm install mongodb --save
+
+DB Code can be written in-
+OO-mongodb, mongoose 
+functional-mongodb, mongoose 
+
+Customer
+Product 
+Student 
+
+Roles-Admin, Customer 
+Admin-add,update,delete,view all products-products
+Customer-addToCart, removeFromCart, udpateCart, view all products
+
+View using HTML Template 
+View-Templating Engines Like Pug, Handlerbars, EJS 
+
+Classes in JavaScript using Class Keywords 
+this, apply, call, bind
+
+
+JWT 
+Authentication
+Validation
+
+e-commerce 
+smaller examples 
+
+
+
+
+3/July/2024-Wednesday
+.....................
+
+mongod shell-cui to interface with MongoDB
+mongosh shell-cui to interface with MongoDB
+MongoDB Compass-gui to interface with MongoDB 
+
+CRUD-
+Select Operations
+Operators 
+
+show dbs 
+
+To switch to a DB 
+
+use fruitsdb 
+fruitsdb>
+use ecommDB
+ecommDB> if I don't add a collection to this db, then it will not be saved
+
+it will not save empty things!
+
+show collections
+
+use command can be used for both creating as well as switching to an existing db 
+
+when I run insert command, it is creating both the collection and inserting the object for meaning
+
+use mixedDB
+    db.students.insertOne({name:'Cat',age:21});
+    db.students.find()
+    db.students.insertOne({name:'Mat',age:22});
+    db.students.insertMany([
+        {name:'Pat',age:27},
+        {name:'Sat',age:25},
+        {name:'Rat',age:24},
+    ])
+    show collections
+    db.students.insertOne({name:'Sat',age:25,hobbies:['Bowling','Swimming']});
+    db.students.insertOne({name:'Pat',age:25,addresses:['first lane','second lane']})
+    db.students.find()
+    db.students.find({age:{$lt:25}})
+    db.students.find({age:{$gt:25}})
+    db.students.find({name:'Sat'})
+    db.students.find({age:25})
+    db.students.countDocuments({ age: { $lte: 25 } })
+    db.students.updateOne({ age: 25 }, { $set: { age: 27 } })
+    db.students.updateMany({ age: 25 }, { $set: { age: 27 } })
+    db.students.deleteOne({name:'Sat'});
+    db.students.deleteMany({age:{$gte:27}});
+    db.students.updateOne({name:'Cat'},{$push:{hobbies:"Swimming","Bowling"}})
+    db.students.updateOne({name:'Sat'},{$push:{hobbies:"swimming"}})
+    db.students.deleteOne({name:'Sat'});
+    db.students.deleteOne({_id: ObjectId("65fab314b54e18a8fb855c42")})
+    db.students.insertOne({name:'Sat',age:25})
+    db.students.updateOne({name:'Sat'},{$push:{hobbies:"swimming"}})
+    db.students.updateOne({name:'Sat'}, { $pull: { hobbies: "swimming" } })
+    db.students.updateOne({name:'Sat'}, { $push: { hobbies: "bowling" } })
+    db.students.updateOne({name:'Sat'}, { $push: { hobbies: "swimming" } })
+
+
+
+ORM-Object Relational mapping
+ODM-Object Document mapping 
+
+MongoDB shell
+Using MongoDB Driver in our node application to connect to MongoDB
+Using Mongoose ODM to connect our node application to MongoDB-they made API flatter, Schema
+
+
+MongoDB-Document Database is the complete opposite of RDBMS 
+Schema-is the format in which I want to store my data 
+name of my table,
+how many columns,
+data types 
+
+JavaScript Object-it lets us think about things in terms of objects 
+JavaScript<->json
+
+Text File-then everything will be stored as text, data types will be lost and will require conversion, text files can read directly by human
+Binary File-then I can preserve the data type, you can't read it directly, it can only be read programatically
+text file is human readable
+binary file is machine readable 
+
+There is no table as such 
+Table=Collection (of objects)-hetrogenous collection of objects 
+Row=Document (is actually just one single object)
+There will be a single DB Instance and all our Tables will belong there 
+
+Here, we can create as many DBs we want 
+It's a light weight document based db 
+where everything is stored in a text file-BSON file which JSON+Binary Data Storage
+
+JavaScript Object can easily be stored in a MongoDB database without much effort.
+This  can be done both on the shell and programatically
+
+I can represent relations from the real world in a more meaning ful way using OOP
+
+const Person= {
+  let name='Cat',
+  let age=25,
+  const officeAddress= {
+
+  },
+   const homeAddress= {
+
+  }
+  const salary={
+    let hra='',
+    let basic='',
+    let specialBonus='',
+  }
+
+}
+
+npm install mongodb --save
+npm install mongoose --save
+
+insert.js
+
+use simpleDB
+db.movies.find()
+
+
+
+2/July/2024-Tuesday
+...................
+
+Completed yesterday's Student RESTAPI implemented using arrays.
+
+Session Management-
+URL Rewriting, 
+Hidden Form Field, 
+Cookies
+Sessions
+JWT Session Token
+
+npm install express --save
+npm install body-parser --save
+npm install serve-static --save
+npm install cookie-parser --save
+npm install cookie-session --save
+
+1/July/2024-Monday
+..................
+
+req.params-this will allow us to access the param part of a RESTAPI call
+req.query-will be used to process query string
+req.body-is used to read form data
+reading json from our request will have json submitted 
+Views using HTML String Templates 
+Session Management-URL Rewriting, Hidden Form Field, Sessions and Cookies 
+Simple Cookies and Sessions 
+RESTAPI-such an application may or maynot have view and controller layers
+MVC-Persistence Logic is built and wrapped as RESTAPI only
+
+28/June/2024-Friday
+...................
+
+routes splitting:
+
+We can make use of a anothe object present in the express framework-router 
+
+
+A minimum of two http methods need to be supported per url-
+/home GET, POST 
+
+We want to split our application into separate layers and put each layer in a different file/folder combination
+we don't want to write our entire application logic in single file like app.js or server.js
+controller 
+(it will contain the actual business logic or it will call the Business Layer, 
+the Business Layer in turn can call the Persistence Layer), 
+
+routes(mapping of url to the respective controller)
+model/persistence layer: will contain code to access the database-document/rdbms 
+
+so if my application logic does not reside in the same file, then the other files will have to be accessed through the module system
+
+view: will contain all the code to generate dynamic html either using HTML String Literal Template or other Template Engines like EJS, Handlerbars or PUG
+mvc_split1
+
+
+mvc_split2
+in this project we will create a controller folder, and copy admin.js and customer.js from the previous project into this folder
+then we create another new folder called routes-with two new files admin.js and customer.js, these files will only contain route optmization
+
+RESTFUL API 
+
+MVC or RESTful where the frontend would be some kind SPA application
+
+
+27/June/2024-Thursday
+.....................
+Assignment:
+/ will server login.html 
+/ POST we will process the login form 
+/register GET then we will server register.html
+/register POST we will process the register form
+for now we will maintain our user records in an array 
+
+MVC-Model, View, Controller all split into separate files 
+route and controller are different 
+The function that processes the url/route become the controller itself!!
+
+mvc_split1
+
+
+Path-core module
+__proto__
+
+express_demos2>npm init 
+npm install express --save
+npm install serve-static --save
+npm install body-parser --save
+
+
+ExpressJS Continued
+middleware
+being able to process a specific http method for each request url
+/login GET or POST 
+/register GET or POST 
+.use() will be used to plug-in other middle ware functionality
+-route splitting into a separate, login, authenticate
+express-VERB FUNCTIONS-get(),post(),put()
+we want to serve static html pages 
+then, how to send back dynamically created html pages-HTML String Template Literal 
+sendRedirection()
+request dispatching-control passing from one controller to another
+Templating Engines-EJS, PUG (Jade), Handlebars 
+how to read form data
+how to read query parameters
+how to read REST params
+split our routing instructions into a separate file 
+your starting point in the node application can be a file that is conventionally called
+app.js, server.js, index.js 
+public>index.html src node_modules 
+
+we will keep our app.js/server.js/index.js outside public folder 
+why? becuase anything you put in public folder is automically accesible by end user
+we will not keep any script files in public folder
+typically we only keep index.html in that file, this file is the home page 
+index.html - Home Page 
+
+
+
+
+
+
+starting e-commerce application 
+
+
+Node will scan for node_modules folder
+
+node_modules contains all the dependencies physically installed
+
+parent>child>inner 
+
+parent>child>inner>a.js 
+
+assume that a.js is physically present in inner folder 
+let connect=require('connect');
+node a.js 
+
+before that, it will look for a folder called node_modules in inner folder
+first the system will look for connect installation in inner's node_modules folder 
+
+it will look for a folder called node_modules in the current folder
+if no such folder is found, then it will go check the parent folder-child (folder)
+if no such folder is found in child (folder), then it will go check child's parent folder
+which in this case happens to be parent (folder)
+This scanning will continue, until a node_modules folder 
+with the necessary package installation in found in the hierarchy
+
+
+26/June/2024-Wednesday
+......................
+
+limitations of http module
+
+var server = http.createServer((req,res)=>{
+
+})
+
+if I'm using http to build my web-application, I will have to determine and manage every last detail associated with the Request
+I will have to determine very http method&url combination and then take an action accordingly
+request object contains all the information received from the browser(client)
+url
+http method
+form parameters
+headers-metdata about the browser itself!
+
+GET-when you type any url in the address bar of the browser, also any hyperlink, and any form submitted using method as GET-
+all these requests will be sent as a GET request
+
+POST-form method="POST"
+
+installing external modules 
+
+npm install connect --save
+
+a folder called as node_modules is created in the pwd
+and this dependency is installed in that folder, also listed in package.jsons
+
+for any node project-
+first create a directory
+switch to that directory
+then run npm init (go with defaults, unless you want to change something)
+you can go with the default by pressing enter
+then confirm, this process creates a package.json
+after that start your installation-
+npm install connect --save
+after the package.json is created, we can do the installtion, as a result
+ two things will happen-
+ node_modules folder will be created
+ the dependency will be listed in package.json
+
+
+npm install express --save
+
+The people who created express are connect are the same
+Express has been built on top of connect
+
+For package scanning, there is a very useful system followed by node
+
+
+connect
+express
+
+25/June/2024-Tuesday
+....................
+CommonJS Module System
+
+core modules in node.js-path, event, streams, http
+I don't need to install a core module, it's already
+available in the platform
+
+External Module-connect, connect
+These need to be installed before usage
+when you install them using npm command,
+this dependency will be saved in package.json
+
+
+events
+streams-I/O
+http-if a web server had to built from scratch? 
+
+From connect, express onwards, we will have to start installing external modules
+connect
+express
+
+1) Web Application Dev using Node+Express 
+2) UI-BL, Persistence Layer, MVC- ES6 String Templates, Templating Engine-EJS/PUG/Handlebars
+3) RESTAPIs 
+4) Routing, Authentication, Persistence-MongoDB+Mongoose, POSTGRES..
+
+
+
+24/June/2024-Monday
+...................
+
+how to create a new project
+
+npm init 
+
+NodeJS follows the CommonJS module specification. 
+Kevin Dongaoor created CommonJS in 2009
+
+AMD-when you want to move your backend JS code to frontend
+
+ES Module System-ReactJS, NextJS
+
+Package and Deploy JS applications
+
+
+Module System-CommonJS
+events, files, streams, buffer, http 
+
+Packages/modules-NodeJS Ecosystem
+path, fs, event, http
+
+web server from scratch using http module 
+express-framework that has been built on top of http 
+
+Modules/Module System
+......................
+
+To make code more manageable and re-usable
+Each file is it's own module-a.js,b.js,c.js 
+and, by default, you don't have access to anything declared in other modules
+unless the other module decides to export it
+
+export/import
+to export something from a module we will make use of
+module.exports 
+
+To import a module, use the globally available 
+require function
+
+if something has to be made accessible outside a file/module, you will have to export it
+if you want to use something from another file, then you've to import it
+
+when I create a module, that is basically an .js file in node,
+I can export one or multiple things from the file.
+
+and, then, when I'm importing something from the module, I can't import it using any name
+names do not matter in nodejs!
+
+There are three kinds of modules in Node.js: 
+core modules-path, event,stream, http, fs 
+file modules-what we are doing right now
+and 
+external node_modules-we will be installing these using npm commmand
+
+
+all of which use the require function.
+
+in all the examples so far, one module is being imported by several different modules
+every time a module is imported, is the system going to create a new copy that variable?
+or will it make all modules share the  same copy? 
+thereby preventing the pollution of global namespace?
+
+How to Create a Node Project-
+
+npm init
+this command will create a file called as package.json
+which contains all the metadata for a node.js project
+all dependencies
+starting script
+
+node_modules 
+this folder will show up or get created, only once we install 3rd party modules-express, session
+package.json is a simple json file
+
+21/June/2024-Friday
+...................
+
+refactoring moveX using await
+parallel vs sequential await 
+
+NodeJS commands
+executing JavaScript in node shell
+
+difference between executing JS in a browser vs node shell
+Module CommonJS Module system
+
+can I run html files in NodeJS?
+browser-v8 engine 
+nodejs-v8 engine, another part-is requiered to do all the file handling, event handling, core modules of node
+
+node_modules
+package installation, package.json
+
+window-browser 
+global-nodejs shell-anything related to DOM or window will not work in nodejs
+
+DOS commands 
+shell commands-mac, linux 
+
+to view all files or folder in you prompt-dir 
+mac-ls 
+
+run cmd 
+launch cmd 
+
+c: (enter)
+d: (enter)
+
+c:>cd foldername
+c:\foldername>cd.. 
+cd ..
+
+cd: change directory
+
+.. represent parent directory
+
+use tab to call out names quickly
+
+pwd: present/print working directory
+
+cd (change directory)
+
+cd foldername
+
+c:\nodejsdemos 
+d:\nodejsdemos 
+
+
+
+
+file, event, http packages
+Express-MVC applications in NodeJS
+Templating Engines-EJS
+Routing
+mongodb, mongoose, postgres -sequelize, prismaorm 
+RESTful API
+Authentication
+Web Sockets
+
+
+I can't run html files in node shell
+
+you need two installations on your computer-
+nodejs installed
+nvm (node version manager)
+nvm-will allow you to have multiple versions on nodejs to exist on your computer
+
+some node shell commands
+node --version
+node --help
+nvm 
+nvm --version
+nvm ls 
+
+cls()-windows
+mac-clear 
+
+nvm use 18.20.3
+node --version
+nvm use 22.2.0 
+node --version
+
+node test1.js
+all outputs from console.log() will be printed on the shell or cmd prompt
+
+typing node will make you enter the node shell
+
+to exit you will have to type ctrl C twice
+
+
+
+
+20/June/2024-Thursday
+.....................
+
+fix yesterday's moveX bug
+
+when JS is being imported from an external .js file, the location of the import is very important
+ <script src="app.js"></script>
+
+ We will discuss how to import external js files in an html page,
+ and will be the visiblity of these files etc.
+
+NodeJS-module system, 
+files and events-async 
+XHR XML Http Request-primitive (underlying fundamental browser object that is doing all the work for you in the background when you use fetch or axios)
+
+fetch API-Old Internet Explorer
+axios API-it's a better looking cleaner version of fetch
+
+any external RESTAPI you will be using fetch and axios
+fetch and axios also return Promises 
+then(),catch()
+async and await
+
+jsonplaceholder api-
+
+users
+posts
+comments
+
+NodeJS-DB, EJS Template, RESTFUL API, mongodb,mongoose,postgres, express+http
+HTTP Methods: GET,POST,DELETE, PUT, OPTIONS etc
+HTTP Request-Response cycle: takes place between the browser and the web-app server
+
+I don't need to import anything to use fetch API- becuase it is the browser's native API
+
+async is a substitute for not using new Promise and resolve and reject in your api implementation
+await is a substitute for not using then() and catch() in your api calling
+
+
+
+
+
+
+async
+await
+
+code organization in client side javascript-
+1) HTML, <script></script>
+you can include the script tag as many times as you want in the html page
+2) HTML, app.js (app.txt)
+
+
+
+19/Jun/2024-Wednesday
+.....................
+
+Promises-
+A Promise is an object representing the eventual completion or failure of an Aysnchronous task
+a long running operation-whether it will succeed or whether it will fail
+a long running-DB, File, Network 
+
+Promise-a pattern for writing asynchronous code
+setTimeout()-all aysnc, it will be removed from the main flow of the application
+in the meantime, you call stack will execute
+
+when you create a promise, it doesn't contain anything concrete, it doesn't have any results for you
+that is why, you have a to wait.
+if you try to obtain anything from a promise, until it has resolved into something successful or into a  failure
+
+Until it has resolved or rejected, in the meantime what you get is a promise.
+
+we need to the promise object two things-
+two functions-
+
+a function/callback that will be called if the promise is resolved
+a function/callback that will be called if the promise is rejected
+
+what/how should the promise notify you if it is successful or if it fails
+
+Promise object gives us two functions
+then()
+catch()
+
+we are passing the success callback to then() function
+we passing the failure callback to the catch() function
+
+
+willgetyouadog is a reference that is pointing to a Promise object!
+
+we have seen, how to pass a success and failure callback to our promise
+now, let's how the promise will pass us back some data!!
+
+
+async and await keywords-these are called as syntactical sugar for the Promise
+
+
+
+
+
+
+
+18/Jun/2024-Tuesday
+....................
+
+Aysnchronous JavaScript:
+Callstack 
+JS is Single Threaded
+difference between synchronous and asynchronous
+
+Animations,File, Network, DB Operations->success, failure, exception-delay
+waiting, or hanging or not allowing it to do anything else,
+ simply because we are waiting for some response from the DB server
+
+
+How Aysnc Callback Actually Works
+
+setTimout()
+setInterval()
+
+
+Callback Nesting and Callback Hell
+
+I'm  calling a function-
+that function has to do some job/task
+it has to fetch something from somewhere-file,network, DB
+do some Animation
+
+now, this caller in JS will always ask for 2 callback
+success callback
+failure callback
+
+this JS function will let us know that it has succeeded by calling our success callback
+this JS function will let us know that it has failed by calling our failure callback
+
+
+
+
+Callback nesting or Promises
+OOP
+
+Promisises, Async,Await
+
+
+
+Http, DB, RESTAPI, 
+DOM, Events, BOM-we will be coming to this
+
+14/June/2024-Friday
+...................
+
+Today-
+map, reduce, filter
+functional constructors-OOP representation
+class, extends, static, public, protected etc-syntactical sugar 
+Prototype based inheritance
+alert(),prompt()-CUI
+Object Literal
+Student
+Box-length, width, height, color, material accept(),display(), volume()
+ObjectLiteral
+function constructor
+ask the end user how many objects he wants to create
+
+this, closure 
+
+GUI-DOM, async-ReactJS
+
+
+13/June/2024-Thursday
+......................
+
+Today-
+ES6 features required for ReactJS-
+array-spread, rest , destructuring 
+
+
+later we will be discussing about-data types, operators, equality check
+using ==, ===
+
+let callback=function(){
+  $("p").click(function(){
+    $(this).hide();
+  });
+}
+
+$(document).ready(callback);
+
+
+12/June/2024-Wednesday
+......................
+
+Yesterday-
+function syntax
+higher order function, functions are first class citizens in JS
+IEF-Immediately Executing functions
+Anonymous Functions
+started Callbacks
+nested functions
+closures
+started object literal
+started array declaration
+started setTimeout()
+
+Today-
+adding methods to Object literal
+-this is going to make it's first appearance
+arrow functions-ES6 feature
+Array functions-map,reduce,filter, push, pop, unshift
+ES6 features required for ReactJS-
+spread, rest , destructuring 
+
+11/June/2024-Tuesday
+...................
+
+Yesterday-
+var, let, const
+var-supported redeclaration
+let,const-do not support re-declaration
+started with scope a little bit
+if,else,loops do not create a new scope for variable
+
+started defining functions
+arrow function
+callbacks-WHAT, WHY? 
+WHAT-what is possible syntactically
+WHY?-why do we need this?
+NodeJS-callback
+ReactJS Library-class, v16.x functional 
+
+nested functions
+closure
+ES6 features-ReactJS
+OOP functional style
+class, extends, static, public, private
+OOP functions
+
+IEF-Immediately Executing function
+You can execute a function immediately after you define it.
+We simple wrapt the function in parantheses()
+
+
+callback-
+In JS functions are called as first class citizens
+In JS you can pass a function 
+-as an argument to another function.
+OOP Java-objects are the first class citizens
+
+map, reduce, filter-
+setTimout(),setInternal()
+http(), calling RESTAPI
+
+Object literal
+we try to avoid traditional classes and object instantiation where not required.
+
+Object Literal is not a substitute for the  class construct!
+class-bluprint
+Object Literal is an object itself!
+
+Prototype
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10-June-2024-Monday
+...................
+
+Presentation-
+Structure-html
+Styling-css
+Action/Interaction-JavaScript
+JavaScript-ES6
+
+Top 10 things to get started with
+
+var,let,const,scope
+a little about data types and operators
+array syntax
+object literal
+function syntax
+special function syntax-
+functions are first class citizens in JavaScript
+higher order functions
+callbacks, callback nesting
+
+nested functions
+closure
+function constructors
+arrow functions
+OOPs Constructs in JavaScript
+
+client-javascript
+server -javascript
+
+Logistics-
+
+1) html page,inline javascript <script></script>
+2) html page,external javascript file .js, imported into html
+3) nodejs-shell, .js you may also directly write your code into the
+node shell
+
+
+install nodejs
+browser-console
+using nodejs-nodejs, reactjs,nextjs
+html page, 
+
+
+
+
+Chrome-v8 Engine run your Javascript
+
+
+html,css-browser
+javascript-v8 engine
+
+v8
+components-
+
+nodejs-execution environment for javascript to run in the backend
+
+
+
+1) JavaScript-variables are declared without any type
+2) you can assign a value of any data type to java script variable
+
+CUI-
+GUI-BOM, DOM
+Browser Object Model-document, window
+Document Object Model-
+
+
+
+
+
+
+
+
+
+
+
+
+
+ECMA Script
+
+w3c-
+
+ES-6-2015-ReactJS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
