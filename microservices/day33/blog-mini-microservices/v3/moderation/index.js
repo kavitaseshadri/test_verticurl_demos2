@@ -28,3 +28,9 @@ app.post('/events', async (req, res) => {
 app.listen(4003, () => {
   console.log('Listening on 4003');
 });
+//The moderation service is a new service added in the program,
+//for now it checks for the word orange present in a comment
+//if found, then the comment is rejected
+//for now we can change the status to either approved or rejected
+//there is no pending state operative in the program
+//after moderating a comment, it broadcasts and event that Comments service watches for

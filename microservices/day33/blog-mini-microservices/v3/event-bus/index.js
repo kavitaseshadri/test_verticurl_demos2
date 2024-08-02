@@ -34,3 +34,6 @@ app.get("/events", (req, res) => {
 app.listen(4005, () => {
   console.log("Listening on 4005");
 });
+//The event-bus watches for all the events broadcasted in the application as
+//it is the main message-broker in the project,
+//it re-broadcasts all the events, it doesn't have to do anything itself for these events
