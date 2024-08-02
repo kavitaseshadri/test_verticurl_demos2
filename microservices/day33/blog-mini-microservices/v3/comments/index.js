@@ -33,6 +33,9 @@ app.post("/posts/:id/comments", async (req, res) => {
       status: "pending",
     },
   });
+  //The comments service on receiving the comment from the UI-stores it in its array
+  //then broadcasts an event for the event-bus-as port number is 4005
+  //The Event it broadcasts is CommentCreated
 
   res.status(201).send(comments);
 });
@@ -61,7 +64,11 @@ app.post("/events", async (req, res) => {
       },
     });
   }
-
+  //The event bus will broacast thrice-Post Creation, Comment Creation, Comment Moderation
+  //When the event-bus broadcasts PostCreated, CommentCreated, the comments service ignores it
+  //but when the event-bus broadcasts CommentModerated then it receives is,
+  //changes the state of it's own comment array, and re-broadcasts a new event, so that
+  //query service can update it's array.
   res.send({});
 });
 

@@ -1,0 +1,5 @@
+posts:4000
+comments:4001
+query:4002
+moderation:4003
+event-bus:4005

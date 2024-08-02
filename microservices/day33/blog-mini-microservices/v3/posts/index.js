@@ -30,6 +30,8 @@ app.post("/posts", async (req, res) => {
       title,
     },
   });
+  //post gets a post from the UI-React App, stores it in it's array, and then broadcasts a message
+  //this message is being broadcasted to event-bus, as the port no mentioned is 4005
 
   res.status(201).send(posts[id]);
 });
@@ -39,6 +41,8 @@ app.post("/events", (req, res) => {
 
   res.send({});
 });
+//when the event-bus re-broadcasts this message, the post service doesnt care about it
+//it simply prints a message, and sends back an empty acknowledgement to events-bus
 
 app.listen(4000, () => {
   console.log("Listening on 4000");

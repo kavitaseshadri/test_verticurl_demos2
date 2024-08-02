@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { randomBytes } = require("crypto");
-const cors = require("cors");
+const cors = require("cors");//cross-origin resource sharing
 const axios = require("axios");
 
 const app = express();
