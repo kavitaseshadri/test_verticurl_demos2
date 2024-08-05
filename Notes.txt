@@ -1,3 +1,207 @@
+3/Aug/2024-Monday
+.................
+
+Docker Commands:
+
+docker version
+
+docker is a Linux VM 
+all the containers are running within this VM 
+
+Image Container docker-client docker-server 
+
+1) creating and running a container from an image-
+
+docker run image_name
+
+docker run hello-world
+
+2) overriding default commands-
+startup command-echo, ls
+alternate command-echo, ls
+
+docker run busybox echo hi there
+
+docker run busybox echo bye there
+
+docker run busybox ls
+
+docker run hello-world ls
+This will not work as this doens't not exist in hello-world
+
+it's not like a container dies after being used once, a container stops after execution, but it can always be restarted
+
+3) listing running containers
+
+docker ps 
+
+some headers for a table 
+containers that run very quickly and exit 
+
+docker run busybox ping google.com
+ping google.com and measure latency
+
+open a second container to run 
+
+docker ps
+you will see the container listed
+
+all containers that have ever been created on our machine-
+
+docker ps --all
+
+container_id
+
+
+4) container Lifecycle
+
+Creating and Running a new Container
+
+docker run=docker create+docker start 
+
+difference between creating a container and starting a container-
+
+docker create hello-world
+it returns a container id-long string of characters
+
+docker start -a 'put the long string of characters here'
+
+without the -a 
+docker start 'put the long string of characters here'
+
+-a make docker watch for the output and print it out at the command prompt
+attach to the container, watch for the output and print it out at the terminal
+
+5) restarting stopped containers-
+
+we can stop and start containers again, just because it stopped, it does not mean its dead.
+
+docker start 'container_id'
+
+but when you re-start a container, you cannot replace the default command
+it will re-issue the default command that was issued during it's previous execution
+
+6) removing stopped containers-
+
+docker system prune
+
+you will have to refetch everything from the docker hub.
+
+
+7) retrieving output logs-
+
+docker logs 'container_id'
+
+docker create busybox echo hi there 
+docker start 'container_id'
+ 
+you forgot to add -a 
+
+docker logs 'container_id'
+
+9) Multi-command containers-
+
+redis-server
+
+redis-cli 
+
+set mynumber 5
+
+get mynumber 
+
+starting redis using docker 
+
+docker run redis 
+
+There is no redis-cli outside the container 
+
+10) executing commands in running containers-
+
+executing an additional command in a container
+
+docker exec -it 'container_id' command_name 
+
+docker exec -it 'container_id' redis-cli
+
+set myvalue 5
+
+get myvalue 
+
+if you remove -it flag
+
+docker exec 'container_id' redis-cli
+
+Then no passing of commands to the main container will happen
+
+on one window-
+docker run redis 
+
+on second window-
+docker ps -all
+docker exec -it fa34f5f5 redis-cli 
+
+
+13) starting with a shell-
+
+executing an additional command in a container 
+
+docker run -it busybox sh
+
+running the sh command as soon as I start the container 
+
+docker run -it busybox sh
+
+14) Build a Docker Image
+
+Dockerfile 
+
+docker build -t kavitaseshadri/simpleweb:latest .
+docker run kavitaseshadri/simpleweb npm start
+
+2/Aug/2024-Friday
+..................
+
+Understanding v2, v3 of the Mini-App
+Getting started with Dockerization of our services 
+
+
+1/Aug/2024-Thursday
+....................
+
+screenshots for Microservices Intro, Mini-App scenario built-up 
+v2, v3 of the Mini-App
+
+31/July/2024-Wednesday
+......................
+
+https://hub.docker.com/search
+
+3 Modules - Potential Docker Containers 
+Client-React-Create and View Posts, 
+Post-Node+express->to add, view posts 
+Comment-Node+express->add, view comments associated with a post 
+
+event-bus: to showccase how event publish/subscribe Works-kafka, rabbitmq,activemq, nats streaming
+query 
+moderation 
+
+docker version 
+
+Creating and running a Container from an Image
+docker run image_name
+
+list all running containers on your machine-
+
+docker ps 
+docker run busybox
+docker ps -all
+
+
+
+
+
+
+
 30/July/2024-Tuesday
 ....................
 
