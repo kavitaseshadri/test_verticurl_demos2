@@ -41,5 +41,7 @@ app.post("/events", (req, res) => {
 });
 
 app.listen(4000, () => {
+  console.log('a new comment log was created-7/Aug/2024');
+  console.log('one more');
   console.log("Listening on 4000");
 });

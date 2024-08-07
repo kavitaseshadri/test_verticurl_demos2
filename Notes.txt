@@ -1,4 +1,225 @@
-3/Aug/2024-Monday
+7/Aug/2024-Wednesday
+....................
+
+dockerimage for each component will be created from its own folder.
+infra/k8s-you will build all your pods, deployments, services
+
+kubectl version
+
+Image is the blueprint for creating a Container 
+
+Whenever you are working with kubernetes you got to have images that are ready to go.
+
+We are going to deploy that into our Kubernetes Cluster
+
+Node is a virtual machine. It's a computer that is going to run some number of containers for us.
+
+if you are running kubernetes on your computer, you are running one node by default.
+
+We are going to create a Config File for Kubernetes
+
+kubectl 
+
+Each container is going to be hosted inside a pod
+
+Each pod could end up in one the many nodes in kubernetes cluster 
+
+Pods and containers in reality are not the same thing.
+But for the purposes of this course we are going to say that pods and containers are the same thing.
+To manage these Pods, kubernetes is also going to create something called a Deployment 
+This Deployment is going to read into this config file to know-they've asked for 2 copies of Posts, so on and so forth.
+This Deployment is going to be in-charge of managing these pods.
+If anything ever goes wrong with these pods, if it crashes, 
+Deployment is going to make sure that the pod gets re-created for us automatically
+Deployment is also supposed to allow containers to interact with each other
+-this is managed through Service
+
+Deployment will make sure that we have the right number of pods and that pods are running successfully.
+Please allow these services or containers to be accessed from other pods/containers
+
+Kubernetes is going to create something called a Service.
+
+Service takes away all the difficulties of what port a service is running.
+
+Kubernetes Cluster: A collections of nodes+a master to manage them
+Node: A virtual machine that will run our containers
+Pod: More or less a running a container, Technically, a pod can run multiple containers (we won't do this)
+Deployment: Monitors a set of pods, make sure they are running and restarts them if they crashes
+Service: Provides an easy-to-remember URL to access a running container
+
+
+Kubernetes Config File:
+
+Tells kubernetes about the different Deploymetns, Pods, and Services, (referred to as 'Objects')
+that we want to create
+
+Written in YAML syntax
+
+Always store these files with our project code-they are documentation!
+
+We can create Objects without config files-do not do this. Config files provide a precise definition of what your cluster is running.
+
+Kubernetes docs will tell you to run direct commands to create objects-only do this for testing purposes.
+Blog posts will tell you to run direct commands to create objects-close the blog post!
+
+1) Creating Pod-
+
+infra/k8s
+
+kubectl apply -f posts.yaml
+pod/posts created
+
+listing all the pods that are running inside our cluster-
+
+kubectl get pods 
+
+a) first you create a docker image
+
+docker build -t kavitaseshadri/posts:0.0.1 .
+
+b) then you create a pod configuration 
+
+we create a folder called infra/k8s-posts.yaml
+
+kubectl apply -f posts.yaml 
+
+kubectl get pods
+
+kubectl exec -it posts sh 
+
+
+2) ErrImagePull etc ..
+
+
+3) Understanding a Pod spec-
+
+apiVersion:v1-k8s is extensible-we can add in our own custom objects. This specifies the set of objects we want k8s to look at.
+kind:Pod-The type of object we want to create
+metadata:
+ name:posts-Config options for the object we are about to create. When the pod is created, give it a name of 'posts'
+spec:-The exact attributes we want to apply to the object we are about to create
+containers:-we can create many containers in a single Pod
+-name:Posts-Make a container with a name of 'posts'
+-image:kavitaseshadri/posts:0.0.1-The exact image we want to use
+
+containers is as array 
+latest or implied latest means, kubernetes will go and look for that image on dockerhub
+if you give a version 0.0.1 then it will look for it on the local computer.
+
+Technically, a Pod could contain multiple containers 
+latest images are searched for on docker hub 
+latest or implicit latest, it means it needs to go and find out in docker hub
+
+
+
+4) Common kubectl commands-
+
+Docker is about running inidividual containers, k8s is about running a bunch of containers together.
+
+
+kubectl get pods
+kubectl exec -it [pod_name][cmd]
+kubectl logs [pod_name]
+kubectl delete pod [pod_name]
+kubectl apply -f[config file name]
+kubectl describe pods [pod_name]
+
+
+kubectl get pods-print out information about all the running pods
+kubectl exec -it [pod_name][cmd]-execute the given command in a running pod
+kubectl logs [pod_name]-print out logs from the given pod
+kubectl delete pod [pod_name]-deletes the given pod
+kubectl apply -f[config file name]-Tells kubernetes to process the config
+kubectl describe pod [pod_name]-print out some information about the running pod 
+
+kubectl apply -f posts
+kubectl apply -f posts.yaml
+kubectl get pods
+kubectl exec -it posts sh
+
+We are going to run only one container inside the Pod
+kubectl logs posts-depl-797c89dd78-ps8xq
+kubectl describe pod posts-depl-797c89dd78-ps8xq
+kubectl get deployments
+kubectl delete deployment posts-depl
+
+5) A Time-saving alias
+
+kubectl 
+
+code ~/ /zshrc
+
+
+
+6) Introducing Deployments
+
+Instead of creating Pods directly, we are going to create something called a deployment 
+A Deployment manages a set of pods 
+
+7) Creating a Deployment
+
+posts.yaml.old 
+We no longer want to create individual pods, instead we want to create a deployment.
+replicas-no of pods we want to create 
+
+8) Common commands around Deployments-
+
+kubectl get pods 
+kubectl apply -f posts.yaml
+kubectl describe pod posts
+kubectl log posts 
+
+
+kubectl get deployments
+kubectl describer deployments [depl name]
+kubectl apply -f [config file name]
+kubectl delete deployment [depl_name]
+
+kubectl get deployments-List all running deployments 
+kubectl describer deployments [depl name]-Print out details about a specific deployment 
+kubectl apply -f [config file name]-Create a deployment out of a config file
+kubectl delete deployment [depl_name]-Delete a deployment 
+
+9) Updating Deployments-
+
+updating an image used by a deployment
+
+
+update the docker container 
+update the yaml file 
+re-apply it to kubectl apply 
+
+
+
+10) Preferred Method for updating deployments-
+
+to push it to docker hub
+docker push kavitaseshadri/posts
+
+kubectl rollout restart deployment posts-depl
+
+
+6/Aug/2024-Tuesday
+..................
+
+Dockerfile walkthrough
+adding .dockerignore file 
+Getting started with kubernetes
+
+command+shift. to show hidden files on mac
+
+kubernetes:k8s
+
+docker build -t kavitaseshadri/simpleweb  .
+
+$ docker run -d -p 8080:8080 kavitaseshadri/posts
+
+docker build -t kavitaseshadri/simpleweb
+docker run kavitaseshadri/simpleweb 
+docker run -it  kavitaseshadri/simpleweb sh 
+
+
+5/Aug/2024-Monday
 .................
 
 Docker Commands:
