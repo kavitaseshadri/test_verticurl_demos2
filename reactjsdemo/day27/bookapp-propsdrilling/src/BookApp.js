@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import BookCreate from './bookapp/BookCreate';
-import BookList from './bookapp/BookList';
+import BookCreate from './components/BookCreate';
+import BookList from './components/BookList';
 
 const BookApp = () => {
     const [books, setBooks] = useState([]);

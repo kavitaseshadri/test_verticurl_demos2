@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+!
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var i = 10;
+    console.log('hello');
+    console.log(' i ' + i);
+    i = "hello world";
+    console.log(' i ' + i);
+    i = 3.14;
+    console.log(' i ' + i);
+
+    //there is no fixed type for a variable
+    //var-keyword
+    //it allows re-declaration in the same scope
+    var i = 15;
+    let a = 10;
+    console.log(' a ' + a);
+    //let a = 23;
+    //if I use let, I cannot re-declare the same variable
+    //in the same scope.
+    //let is for variables
+    //const is for declaring constants
+    const pi = 3.14;
+    //pi = 2.5;
+    //const pi = 5;
+    //neither of them support re-declaration
+    if (true) {
+        var i = 20;
+        console.log('printed from if block');
+        console.log('i ' + i);
+        //this i would actually be overwriting the i declared above
+        //does not create a new scope inside this block
+    }
+    console.log('printed after if block');
+    console.log('i ' + i);
+    while (false) {
+        //does not create a new scope inside this block
+    }
+
+    //blocks like if, else, loops 
+    //do not create a new scope for var
+    //a new scope is only created when you declare a function
+
+    function func1() {
+        var i = 50;
+        //creates a new varible i, 
+        //a function in javascript is a new scope
+        console.log('printed from func1 block');
+        console.log('i ' + i);
+        //now a new variable called i has been created here
+    }
+
+    func1();
+    console.log('printed after func1 was called');
+    console.log('i ' + i);
+    //let, const 
+    //don't use var
+
+    function func2(a, b) {
+        return a + b;
+    }
+    function func3(msg) {
+        console.log('msg ' + msg);
+    }
+
+    //doesn't ask you for the datatype
+
+    let n1 = func2(1, 2);
+    console.log('n1 ' + n1);
+    console.log(func2(2, 3));
+
+    let n2 = func2('hello', 2);
+    console.log('n2 ' + n2);
+    //a fuction is accepting parameters but the types are not required to be defined
+    //second, function is declared using the function
+    //there is no such thing as void
+    //if you try to use or refer to something
+    //that doesn't exist, javascript will simply print undefined
+    //undefined
+
+    function func4() {
+        console.log('hello this is func3');
+    }
+
+    //step1-change
+
+    var func5 = function () {
+        console.log('func5');
+    }
+    //funct5 as a handle for this function
+    func5();
+
+    var c = function () {
+        console.log('c');
+    }
+    c();
+
+    //arrow
+    //the difference between a function
+    //declared using function or as arrow
+    //lies in how or what this pointer will reference
+
+    var arrow1 = () => {
+        console.log('arrow1');
+    }
+    var arrow2 = () => console.log('arrow1');
+
+    var arrow3 = (a, b) => {
+        return a + b;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>

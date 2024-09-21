@@ -50,11 +50,15 @@ const UseEffectComponent = () => {
             <h1>UseEffectComponent Demo</h1>
             <div>
                 <h1>{firstCount}</h1>
-                <button type="button" className={styles.firstCount} onClick={incrementFirstCount}>Increment First Count</button>
+                <button type="button" className={styles.firstCount} onClick={incrementFirstCount}>
+                    Increment First Count
+                </button>
             </div>
             <div>
                 <h1>{secondCount}</h1>
-                <button type="button" className={styles.secondCount} onClick={incrementSecondCount}>Increment Second Count</button>
+                <button type="button" className={styles.secondCount} onClick={incrementSecondCount}>
+                    Increment Second Count
+                </button>
             </div>
         </div>
     )
