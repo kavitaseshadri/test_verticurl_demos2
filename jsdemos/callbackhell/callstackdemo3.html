@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callbackdemo3</title>
+    <script>
+        function processSequence3() {
+            console.log('hello from processSequence3');
+        }
+        //alert, prompt, confirm are blocking functions
+        function processSequence() {
+            console.log('I Go FIRST');
+            alert('I block everything');
+            console.log('I Go Second');
+        }
+        function hello() {
+            console.log('Good old hello world!');
+        }
+        function processSequence2() {
+            console.log('I happen first');
+            //DB, File, Network
+            //whenver you have a long running operation,
+            //always put that in a setTimout or setInterval function
+            setTimeout(hello, 1000);
+            //hello function will execute after 
+            //a delay of 1000 seconds
+
+            setTimeout(() => {
+                console.log('the second timer')
+            }, 2000);
+            console.log('i happen god knows when, as Im a long running operation');
+        }
+
+    </script>
+</head>
+
+<body onload="processSequence();processSequence2();processSequence3()">
+
+</body>
+
+</html>

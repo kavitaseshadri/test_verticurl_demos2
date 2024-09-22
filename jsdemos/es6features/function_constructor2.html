@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function_constructor1</title>
+    <script>
+        function Student(name, age, marks) {
+            //it will contain all the property declarations
+            //all the method declarations
+            //these are all my instance variables
+            this.name = name;
+            this.age = age;
+            this.marks = marks;
+            //these are all my instance methods
+            this.accept = function () {
+                //prompt() is a function on the window object
+                //it returns data in string format
+                this.name = prompt('Enter Student Name');
+                this.age = prompt('Enter Student Age');
+                this.marks = [];
+                for (let i = 0; i < 5; i++) {
+                    let m = parseInt(prompt('Enter marks ' + (i + 1)));
+                    this.marks.push(m);
+                }
+                //parseInt, parseFloat will convert the string input into numberic form
+            }
+            this.display = function () {
+                let msg = 'Name ' + this.name + ' Age ' + this.age;
+                msg += " Percentage " + this.getPercentage() + " Division " + this.computeDivision();
+                for (let i = 0; i < this.marks.length; i++) {
+                    msg += ' marks ' + (i + 1) + this.marks[i];
+                }
+                console.log(msg);
+                alert(msg);
+            }
+            this.getPercentage = function () {
+                let percentage = this.getTotalMarks() / 5;
+                return percentage;
+            }
+            this.getTotalMarks = function () {
+                //reduce    
+                let totalM = this.marks.reduce((total, value) => total + value);
+                return totalM;
+            }
+            this.computeDivision = function () {
+                let percentage = this.getPercentage();
+                if (percentage <= 100 && percentage > 75) {
+                    return "First Division";
+                } else if (percentage <= 75 && percentage >= 60) {
+                    return "Second Division";
+                } else if (percentage < 60 && percentage > 40) {
+                    return "Third Division";
+                } else {
+                    return "Candidate failed!! :(";
+                }
+            }
+        }
+        //we can define a function that can be both 
+        //the class definition and
+        //a constructor for us
+        let studentArray = [];
+        let objectCount = parseInt(prompt('How many object do you need?'));
+        console.log(objectCount);
+        for (let i = 0; i < objectCount; i++) {
+            let s = new Student(null, null, 0);
+            //here I'm using the function contructor as a constructor to create
+            //a new Student object
+            s.accept();
+            s.display();
+            studentArray.push(s);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

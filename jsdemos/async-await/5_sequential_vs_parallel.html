@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sequential vs parallel</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        async function get3PokemonSequential() {
+            const poke1 = await axios.get('https://pokeapi.co/api/v2/pokemon/1');
+            console.log(poke1);
+            const poke2 = await axios.get('https://pokeapi.co/api/v2/pokemon/2');
+            const poke3 = await axios.get('https://pokeapi.co/api/v2/pokemon/3');
+            //here do we want them to be sequential?
+            //is that required
+            //unless a particular promise doesn't resolve, it will not make the next request
+            console.log(poke1.data);
+            console.log(poke2.data);
+            console.log(poke3.data);
+        }
+
+        //PARALLEL REQUESTS
+        async function get3Pokemon() {
+            const prom1 = axios.get('https://pokeapi.co/api/v2/pokemon/1');
+            //console.log(prom1);
+            const prom2 = axios.get('https://pokeapi.co/api/v2/pokemon/2');
+            //console.log(prom2);
+            const prom3 = axios.get('https://pokeapi.co/api/v2/pokemon/3');
+            //console.log(prom3);
+            const poke1 = await prom1;
+            const poke2 = await prom2;
+            const poke3 = await prom3;
+            console.log(poke1.data);
+            console.log(poke2.data);
+            console.log(poke3.data);
+        }
+
+    </script>
+</head>
+
+<body onload="get3PokemonSequential();get3Pokemon() ">
+
+</body>
+
+</html>

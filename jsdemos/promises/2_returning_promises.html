@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>returning_promises</title>
+    <script>
+        const makeDogPromise = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const rand = Math.random();
+                    if (rand <= 0.5) {
+                        resolve();
+                    } else {
+                        reject();
+                    }
+                }, 2000);
+            })
+        }//makeDogPromise is pointing to a function that creates and returns a promise object
+
+        //everytime I call makeDogPromise, a new promise object is getting created!
+        //there are 3 promise object
+
+
+        makeDogPromise()
+            .then(() => {
+                console.log('YAY WE GOT A DOG!!!!');
+            })
+            .catch(() => {
+                console.log(':( NO DOG');
+            })
+        //here both then and catch are bound to the same promise object
+        //if you to link your callbacks to the same promise object, do it like this in a sequence
+
+
+        makeDogPromise()
+            .then(() => {
+                console.log('YAY WE GOT A DOG!!!!');
+            })
+        //here a new promise is created and with only resolve defined
+
+        makeDogPromise()
+            .catch(() => {
+                console.log(':( NO DOG');
+            })
+        //here a new promise is created and with only reject defined
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object_literal1</title>
+    <script>
+        //object is a single object,
+        //its not a template
+        const person1 = {
+            name: 'Mike',
+            likes: function () {
+                //console.log(name + ' likes to play football');
+                console.log(this.name + ' likes to play football');
+                //use this pointer to access the property of the object
+                //else it will not print anything
+            }
+        }
+        //person1 is an object!
+        //within the function defined in the object literal,
+        //properties of the object can only be accessed using this pointer
+        console.log(person1);
+        person1.likes();
+
+        const person2 = {
+            name: 'Jenny',
+            likes: function () {
+                console.log(this.name + ' likes to sing ');
+            }
+        }
+        console.log(person2);
+        person2.likes();
+
+        const hobby = function () {
+            console.log(this.name + " likes " + this.likes);
+            //use this pointer to access the property of the object
+            //else it will not print anything
+        }
+
+        const person3 = {
+            name: 'Jeff',
+            likes: 'dance',
+            hobby: hobby,
+            //it can have a different name
+        }
+        console.log(person3);
+        person3.hobby();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

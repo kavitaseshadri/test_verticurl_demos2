@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student_objectliteral1</title>
+    <script>
+
+        const accept = function () {
+            //prompt() is a function on the window object
+            //it returns data in string format
+            this.name = prompt('Enter Student Name');
+            this.age = prompt('Enter Student Age');
+            this.marks = [];
+            for (let i = 0; i < 5; i++) {
+                let m = parseInt(prompt('Enter marks ' + (i + 1)));
+                this.marks.push(m);
+            }
+            console.log(this.marks);
+            //parseInt, parseFloat will convert the string input into numberic form
+        }
+        const display = function () {
+            let msg = 'Name ' + this.name + ' Age ' + this.age;
+            msg += " Percentage " + this.getPercentage() + " Division " + this.computeDivision();
+            for (let i = 0; i < this.marks.length; i++) {
+                msg += ' marks' + (i + 1) + ' ' + this.marks[i];
+                console.log(msg);
+            }
+            console.log(msg);
+            alert(msg);
+        }
+        const getPercentage = function () {
+            let percentage = this.getTotalMarks() / 5;
+            return percentage;
+        }
+        const getTotalMarks = function () {
+            //reduce    
+            let totalM = this.marks.reduce((total, value) => total + value);
+            return totalM;
+        }
+        const computeDivision = function () {
+            let percentage = this.getPercentage();
+            if (percentage <= 100 && percentage > 75) {
+                return "First Division";
+            } else if (percentage <= 75 && percentage >= 60) {
+                return "Second Division";
+            } else if (percentage < 60 && percentage > 40) {
+                return "Third Division";
+            } else {
+                return "Canditate failed!! :(";
+            }
+        }
+
+
+        let studentArray = [];
+        let objectCount = parseInt(prompt('How many object do you need?'));
+        console.log(objectCount);
+        for (let i = 0; i < objectCount; i++) {
+            let student = {
+                name: '',
+                age: '',
+                marks: [],
+                accept: accept,
+                display: display,
+                getPercentage: getPercentage,
+                getTotalMarks: getTotalMarks,
+                computeDivision: computeDivision,
+            };
+            studentArray.push(student);
+            student.accept();
+            student.display();
+            //use the ability of javascript to add properties to an object dynamically
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

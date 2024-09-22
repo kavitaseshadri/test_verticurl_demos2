@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Promises</title>
+    <script>
+        //A Promise is actually an object
+        //it takes two arguments-success function, failure function
+        //Syntax
+        //Will Get You a Dog
+        //Promise is a pre-defined class
+        //we are instantiating a Promise object
+        //use new operator
+        const willGetYouADog = new Promise(
+            (resolve, reject) => {
+                //here we will be  doing the actualy long running operation
+                //of fetching data from DB, File, Network
+                const randomNo = Math.random();
+                if (randomNo < 0.3) {
+                    reject();
+                } else {
+                    resolve();
+                }
+            }//this is just a definition
+            //willGetYouADog is a reference to the Promise object
+        );
+
+        willGetYouADog.then(() => {
+            console.log('YAY WE GOT A DOG!!');
+        });//here I'm passing resolve/success callback
+
+        willGetYouADog.catch(() => {
+            console.log('NO DOG :(((');
+        })//here I''m passing reject/failure callback
+
+
+        const promiseObject = new Promise((resolve, reject) => {
+            //resolve and reject are the two callbacks we are passing
+            //later on, depending on whether the promise fails or succeeds,
+            //it will call one of the two callbacks to notify us.
+        });
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

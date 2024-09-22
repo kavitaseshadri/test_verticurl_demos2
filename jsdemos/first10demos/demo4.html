@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo4</title>
+    <script>
+        //anonymous functions
+        //it's a function without a name;
+        var foo1 = function namedFunction() {
+            //this is a named function
+            console.log('foo1');
+        }//WHAT can we do?
+        //WHY?
+        //we are storing the definition
+        //of a function in a variable
+
+        foo1();
+        //namedFunction();
+        //we can't use this anymore!
+
+        function foo3() {
+            console.log('foo3');
+        }//this is not anonymous, this is normal
+
+        foo3();
+
+        var foo2 = function () {
+            //no name has been given to this function
+            //so if we don't save it's reference
+            //then we cannot call/invoke it
+            console.log('foo2');
+        }
+
+        console.log(foo2);//here it will print
+        //what is contained in the variable
+        foo2();//invoking the function
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_functions3</title>
+    <script>
+        let fruits = ['Banana', 'Apple', 'Orange', 'Mango'];
+        let cars = ['BMW', 'Mercedes', 'Ford Mustang', 'VW'];
+
+
+        function display1(value, index, array) {
+            console.log('printed from display1');
+            console.log('Name ' + value + ' index ' + index);
+            console.log('array.length ' + array.length);
+        }
+
+        let display2 = (value, index) => {
+            console.log('printed from display2');
+            console.log('Name ' + value + ' index ' + index);
+        }
+
+        let display3 = value => console.log('Name ' + value);
+        //i want to perform the same task on every element of the aray
+
+        cars.forEach(display1);//callback
+        cars.forEach(display2);//callback
+        cars.forEach(display3);//callback
+
+        fruits.forEach(display1);//callback
+        fruits.forEach(display2);//callback
+        fruits.forEach(display3);//callback
+
+        //map, reduce, filter-never modify the original array
+        //first, map will create a copy of the original array
+        //map will never modify the original array
+        //map-perform operation on each element,
+        //then it will return a new array with modified elements
+
+        function changeToUpperCase(value, index, array) {
+            return value.toUpperCase();//this is a string function
+        }
+        //I want to print the car names and fruit names in uppercase
+        let fruitUpperCase = fruits.map(changeToUpperCase);
+        //but first map will create a copy of the fruits
+        //it will do the iteration
+        //changeToUpperCase will be executed on every array element the array
+        console.log(fruits);
+        console.log(fruitUpperCase);
+
+        let fruitUpperCase2 = fruits.map(function (value) {
+            return value.toUpperCase();
+        })
+        console.log(fruits);
+        console.log(fruitUpperCase2);
+
+        let fruitUpperCase3 = fruits.map((value) => value.toUpperCase())
+        console.log(fruits);
+        console.log(fruitUpperCase3);
+
+        fruitUpperCase.forEach(display1);
+        fruitUpperCase2.forEach(display2);
+        fruitUpperCase3.forEach(display3);
+
+        //reduce-aggregation or total
+        const marks = [88, 98, 87, 79, 66];
+
+        let totalMarks1 = (total, value, index, array) => {
+            console.log('total ' + total + ' value ' + value);
+            return total + value;
+        }
+
+        let totalMarks2 = (total, value) => total + value;
+
+        let total1 = marks.reduce(totalMarks1);
+        console.log('total1 ' + total1);
+        marks.forEach(display1);
+        //reduce will create a copy of the array 
+        //then it will aggregate the values of that array
+        //return you the aggregation value
+
+        let total2 = marks.reduce(totalMarks2);
+        console.log('total2 ' + total2);
+        marks.forEach(display2);
+
+        let total3 = marks.reduce((total, value) => total + value);
+        console.log('total3 ' + total3);
+        marks.forEach(display3);
+
+        //filter
+        const numbers = [];
+        for (let i = 0; i <= 100; i++) {
+            numbers.push(i);
+        }
+
+        numbers.forEach(display3);
+        //create an array of even numbers
+        //create an array of odd numbers
+
+        let evenNumbers = numbers.filter((value) => value % 2 === 0);
+        console.log(evenNumbers);
+        //compare primitives using === not ==
+
+        let oddNumbers = numbers.filter((value) => value % 2 !== 0)
+        console.log(oddNumbers);
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

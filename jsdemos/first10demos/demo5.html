@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo5</title>
+    <script>
+        //In JS, we don't want a function to
+        //execute, as soon as it is defined
+        //callback
+        //we want to pass the reference of
+        //a function to another function
+        //but that other function will
+        //decide when it has to be called/invoked/executed
+        //Event Handling
+        //we are trying to defer the execution of a function
+        //Higher Order Function
+        //functions that take other functions as arguments
+        //are called higher order functions!
+        function foo() {
+            return 123;
+        }
+        function bar() {
+            console.log('bar function returns nothing useful!')
+        }
+
+        var a = foo();
+        console.log('a ' + a);
+        bar();
+        //console.log(bar());
+        //it can't be done, as it doesn't return anything
+
+        //we create a split in the function defition
+        var f1 = function temp() {
+            return 789;
+        }
+        //you can store the definition of a function
+        //in a variable,
+        //why, because function are actually objects in JS!!
+        //in JS, functions are first class citizens
+        //in OOPS, objects are first class citizens!
+        var a1 = f1();
+        console.log('a1 ' + a1);
+        //console.log(temp());
+        var f2 = function () {
+            return 345;
+        }
+        var b = f2();
+        console.log(b);
+        console.log(f2());
+
+        //this is a higher order function
+        //why, as it is going to accept 
+        //other functions as arguements
+        //WHAT is possible?
+        //WHY we are doing this will come later...
+        function hof1(callback1, callback2) {
+            callback1();//this will invoke the function
+            callback2();//this will invoke the function
+            console.log(callback1);//this will only print the definition
+            console.log(callback2);//this will only print the definition
+        }
+
+        hof1(foo, bar);
+        //here we are passing a function as an argument
+        //but we could have also passed variables here
+        var n1 = 10;
+        var n2 = 22;
+        hof1(n1, n2);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

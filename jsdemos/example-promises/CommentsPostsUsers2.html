@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments, Posts, Users-using axios2</title>
+    <script>
+        const processSocial = (type) => {
+            const option = type;
+            console.log(`https://jsonplaceholder.typicode.com/${option}`);
+            fetch(`https://jsonplaceholder.typicode.com/${option}`)
+                .then((response) => response.json())
+                .then((json) => {
+                    console.log(json);
+                    document.getElementById('feed').innerText = JSON.stringify(json);
+                })
+                .catch((err) => {
+                    console.log('SOMETHING WENT WRONG WITH FETCH!');
+                    console.log(err);//HTTP status code
+                })
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="processSocial('comments')">Comments</button>
+    <button onclick="processSocial('posts')">Posts</button>
+    <button onclick="processSocial('users')">Users</button>
+    <pre id="feed"></pre>
+</body>
+
+</html>

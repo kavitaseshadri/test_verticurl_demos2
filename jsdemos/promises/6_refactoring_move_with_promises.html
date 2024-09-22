@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>refactoring move with promises</title>
+
+</head>
+
+<body>
+    <h1>Something will show up soon!!</h1>
+    <button>Move Me!!</button>
+    <script>
+        const moveX = (element, amount, delay) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const bodyBoundary = document.body.clientWidth;
+                    const elRight = element.getBoundingClientRect().right;
+                    const currLeft = element.getBoundingClientRect().left;
+                    if (elRight + amount > bodyBoundary) {
+                        reject({ bodyBoundary, elRight, amount });
+                    }
+                    else {
+                        element.style.transform = `translateX(${currLeft + amount}px)`;
+                        resolve()
+                    }
+                }, delay);
+            })
+        }
+
+        const btn = document.querySelector('button');
+        moveX(btn, 100, 1000)
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .then(() => moveX(btn, 100, 1000))
+            .catch(({ bodyBoundary, amount, elRight }) => {
+                console.log(`Cannot Move! Body is ${bodyBoundary}px wide`);
+                console.log(`Element is at ${elRight}px, ${amount}px is too large!`);
+            });
+
+
+    </script>
+</body>
+
+</html>

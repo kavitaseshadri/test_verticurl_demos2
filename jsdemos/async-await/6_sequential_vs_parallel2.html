@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sequential vs parallel 2</title>
+    <script>
+        function changeBodyColor(color, delay) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor = color;
+                    resolve();
+
+                }, delay);
+            });
+        }
+        //IN SEQUENCE
+        async function lightShow() {
+            await changeBodyColor('red', 1000);
+            await changeBodyColor('yellow', 1000);
+            await changeBodyColor('violet', 1000);
+            await changeBodyColor('green', 1000);
+            await changeBodyColor('blue', 1000);
+        }
+        //IN PARALLEL
+        async function lightShow2() {
+            const p1 = changeBodyColor('violet', 1000);
+            const p2 = changeBodyColor('pink', 1000);
+            const p3 = changeBodyColor('red', 1000);
+            const p4 = changeBodyColor('yellow', 1000);
+            await p1;
+            await p2;
+            await p3;
+            await p4;
+        }
+
+    </script>
+</head>
+
+<body onload="lightShow();lightShow2()">
+
+</body>
+
+</html>

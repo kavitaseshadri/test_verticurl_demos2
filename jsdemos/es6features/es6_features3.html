@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6_features3</title>
+    <script>
+
+        //destructuring, spread for objects
+        //shortcut notation for creating object literal properties
+
+        function getSomething2() {
+            let a = 5;
+            function squared(number) {
+                return number * number;
+            }
+            let message = "this is a very special function";
+            return {
+                data: a,
+                method1: squared,
+                info: message,
+            }//object literal
+        }
+
+        function getSomething3() {
+            let a = 5;
+            function squared(number) {
+                return number * number;
+            }
+            let message = "this is a very special function";
+            //ES6 shortcut for object literal property
+            return {
+                // a: a,
+                //left a is the new property, right a is the variable it will search for
+                // squared: squared,
+                // message: message,
+                a,
+                squared,
+                message,
+            }
+        }
+        //that, when we call methods in JavaScript that return us an object
+        //but we are not interested in all the properties of that object
+        //then we can destructure and use only the properties we need
+        //ReactJS programming is done using this concept
+        function getSomething1() {
+            let a = 5;
+            function squared(number) {
+                return number * number;
+            }
+            let message = "This is a very special function";
+            return [message, squared];
+        }
+
+        const [newMessage, newFunction] = getSomething1();
+        //when you destructure an array, the names of the variable don't matter
+        console.log(newMessage);
+        console.log(newFunction(2));
+        const [a, something1] = getSomething1();
+        console.log(a);
+        console.log(something1(2));
+
+        //object destructuring
+        const vehicleOne = {
+            brand: 'Ford',
+            model: 'Mustang',
+            type: 'car',
+            year: 2021,
+            color: 'red',
+        }
+        //now when the object is passed to a function,
+        //old way of accessing properties of an object
+        function printVehicleDetails(vehicle) {
+            console.log(' brand ' + vehicle.brand);
+            console.log(' model ' + vehicle.model);
+            console.log(' type ' + vehicle.type);
+            console.log(' year ' + vehicle.year);
+            console.log(' color ' + vehicle.color);
+        }
+        printVehicleDetails(vehicleOne);
+        const printVehicleData = (vehicle) => {
+            console.log(' brand ' + vehicle.brand);
+            console.log(' model ' + vehicle.model);
+            console.log(' type ' + vehicle.type);
+            console.log(' year ' + vehicle.year);
+            console.log(' color ' + vehicle.color);
+        }
+        printVehicleData(vehicleOne);
+        //new way of accessing properties of an object using destructuring
+        const { model, color } = vehicleOne;
+        console.log(' model ' + model);
+        console.log(' color ' + color);
+        //object destructuring depends on names of the properties matching
+
+        const printVehicleData2 = ({ color, brand }) => {
+            console.log(' brand ' + brand);
+            console.log(' color ' + color);
+        }
+        printVehicleData2(vehicleOne);
+
+        const printVehicleData3 = (vehicle) => {
+            const { color, brand } = vehicle;
+            console.log(' brand ' + brand);
+            console.log(' color ' + color);
+        }
+        printVehicleData3(vehicleOne);
+
+        //spread operators with objects
+        const myVehicle = {
+            brand: 'Ford',
+            model: 'Mustang',
+            color: 'red'
+        }
+        const updatedVehicle = {
+            type: 'car',
+            year: 2021,
+            color: 'yellow'
+        }
+        //spread operator to copy name,value from one object to another 
+        const myMergedVehicle = { newZero: '1', ...myVehicle, newOne: 'hello', ...updatedVehicle, newEnd: '100' };
+        console.log(myVehicle);
+        console.log(updatedVehicle);
+        console.log(myMergedVehicle);
+
+        let student = {
+            name: 'Jaggu',
+            division: 'Fail :('
+        }
+        console.log(student);
+        let stuObj = { ...student, division: 'Pass ho gaya' };
+        console.log(stuObj);
+
+        //spreading and updation
+        student = { ...student, division: 'Pass ho gaya', name: 'John Doe' };
+        console.log(student);
+        student.name = "Gabbar";//state change for the object
+        console.log(student);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo3</title>
+    <script>
+        var foo = 123;
+        if (true) {
+            (function () {
+                var foo = 456;
+                console.log('foo ' + foo);//456
+            })();//we're doing this to create a new scope
+        }
+        console.log('foo ' + foo);//123
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

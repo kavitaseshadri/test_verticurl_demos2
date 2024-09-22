@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>await_keyword</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function getPosts() {
+            const res = axios.get(`https://jsonplaceholder.typicode.com/comments`);
+            //what will we get here? the results or a promise?
+            console.log(res.data);
+            const res1 = axios
+                .get(`https://jsonplaceholder.typicode.com/comments`)
+                .then((res1) => {
+                    console.log('promise resolved with ');
+                    console.log(res1.data);
+                })
+                .catch((err) => {
+                    console.log('promise rejected with error ' + err);
+
+                })
+            const res2 = await axios.get(`https://jsonplaceholder.typicode.com/comments`)
+            console.log(res2.data);
+            // const res3 = await axios.get(`https://jsonplaceholder.typicode.com/comments2`)
+            // console.log(res3.data);
+            const res4 = await axios.get(`https://jsonplaceholder.typicode.com/comments2`)
+                .catch((err) => {
+                    console.log('promise reject with ' + err);
+                })
+            // console.log(res4.data);
+            try {
+                const res5 = await axios.get(`https://jsonplaceholder.typicode.com/comments2`)
+                console.log(res5.data);
+            } catch (e) {
+                console.log('IN CATCH', e);
+            }
+
+        }
+        getPosts();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

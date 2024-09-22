@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callbackhell7</title>
+    <script>
+
+        function setUp() {
+            const btn = document.querySelector('button');
+
+            moveX(btn, 300, 1000, () => {
+                moveX(btn, 300, 1000, () => {
+                    moveX(btn, 300, 1000, () => {
+                        moveX(btn, 300, 1000, () => {
+
+                        }, () => {
+                            alert('CANNOT MOVE FURTHER');
+                        })
+                    }, () => {
+                        alert('CANNOT MOVE FURTHER');
+                    })
+                }, () => {
+                    alert('CANNOT MOVE FURTHER');
+                })
+            }, () => {
+                alert('CANNOT MOVE FURTHER');
+            })
+        }
+
+        const moveX = (element, amount, delay, onSuccess, onFailure) => {
+            setTimeout(() => {
+                const bodyBoundary = document.body.clientWidth;
+                const elRight = element.getBoundingClientRect().right;
+                const currLeft = element.getBoundingClientRect().left;
+                if (elRight + amount > bodyBoundary) {
+                    onFailure();
+                }
+                else {
+                    element.style.transform = `translateX(${currLeft + amount}px)`;
+                    onSuccess();
+                }
+            }, delay);
+        }
+    </script>
+</head>
+
+<body onload="setUp()">
+    <h1>Something will show up soon!!</h1>
+    <button id="btn1">Move Me!!</button>
+</body>
+
+</html>

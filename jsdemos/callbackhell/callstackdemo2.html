@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callstackdemo2</title>
+    <script>
+        const repeat = (str, times) => {
+            let result = '';
+            for (let i = 0; i < times; i++) {
+                result += str;
+            }
+            return result;
+        }
+        const scream = (str) => {
+            return str.toUpperCase() + '!!!';
+        }
+        const getComplainText = (phrase) => {
+            let text = scream(phrase);//this converts the text to upper case
+            let complaint = repeat(text, 8);//this repeats the text 8 times
+            return complaint;
+        }
+        const makeComplain = (phrase, el) => {
+            console.log('on load was called');
+            const h1 = document.createElement('h1');//we are creating a new dom node h1
+            let textValue = getComplainText(phrase);//calls scream, repeat
+            const textNode = document.createTextNode(textValue);
+            h1.appendChild(textNode);
+            el.appendChild(h1);//the h1 is being attached to the DOM tree
+        }
+        console.log('HELLO');
+    </script>
+</head>
+
+<body onload="makeComplain('I hate nothing',document.body)">
+    <!-- onload function is called as soon the page structure is ready -->
+</body>
+
+</html>

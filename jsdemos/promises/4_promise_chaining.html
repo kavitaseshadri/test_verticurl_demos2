@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise_chaining</title>
+    <script>
+        //This is again a Fake Http Request Function
+        //it takes 1 second to resolve or reject the promise,
+        //depending on the url that is passed in
+        //here we are defining the api that uses promise to deliver it
+        const fakeRequest = (url) => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const pages = {
+                        '/users': [
+                            { id: 1, username: 'Biblo' },
+                            { id: 2, username: 'Esmeralda' }
+                        ],
+                        '/user/1': {
+                            id: 1,
+                            username: 'Bilbo',
+                            upvotes: 360,
+                            city: 'Lisbon',
+                            topPostId: 454545,
+                        }, '/users/5': {
+                            id: 5,
+                            username: 'Esmerelda',
+                            upvotes: 571,
+                            city: 'Honolulu'
+                        },
+                        '/posts/454545': {
+                            id: 454545,
+                            title: 'This is going to be epic'
+                        },
+                        '/about': 'This is the about page!'
+                    };
+                    const data = pages[url];
+                    if (data) {
+                        resolve({ status: 200, data }); //resolve with a value!
+                    } else {
+                        reject({ status: 404 }); //reject with a value!
+                    }
+                }, 1000);
+            })
+        };
+
+        //now we are actually making that request
+        fakeRequest('/users')
+            .then((res) => {
+                console.log(res);
+                const id = res.data[0].id;
+                console.log(id);
+                return fakeRequest(`/users/${id}`);
+            })
+            .then((res) => {
+                console.log(res.data);
+                const postId = res.data.topPostId;
+                console.log(postId);
+                return fakeRequest(`/posts/${postId}`);
+            })
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log('OH NO!', err);
+            });
+
+        /*
+    fakeRequest('/users')
+        .then((res) => {
+            console.log(res);
+            const id = res.data[0].id;
+            return fakeRequest(`/useALSKDJrs/${id}`); //INVALID URL, CATCH WILL RUN!
+        })
+        .then((res) => {
+            console.log(res);
+            const postId = res.data.topPostId;
+            return fakeRequest(`/posts/${postId}`);
+        })
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log('OH NO!', err);
+        });
+*/
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

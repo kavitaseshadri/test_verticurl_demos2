@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callbackhell3</title>
+    <script>function setUp() {
+            const btn = document.querySelector('button');
+            setTimeout(() => {
+                btn.style.transform = `translateX(100px)`;
+                setTimeout(() => {
+                    btn.style.transform = `translateX(200px)`;
+                    setTimeout(() => {
+                        btn.style.transform = `translateX(300px)`;
+                        setTimout(() => {
+                            btn.style.transform = `translateX(400px)`;
+                            setTimeout(() => {
+                                btn.style.transform = `translateX(500px)`;
+                            }, 1000)//5th timeout
+                        }, 1000)//4th timeout
+                    }, 1000)//3rd timeout
+                }, 1000);//2nd timeout
+            }, 1000);//1st timeout
+        }
+
+
+    </script>
+</head>
+
+<body onload="setUp()">
+    <h1>Something will show up soon!!</h1>
+    <button id="btn1">Move Me!!</button>
+</body>
+
+</html>

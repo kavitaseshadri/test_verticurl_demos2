@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo7</title>
+    <script>
+        //nested function
+        //when we define a function inside another function
+        //outer and inner function
+        //closures-inner function depends on the outer functions' state
+
+        function outerFunction(arg) {
+            var variableInOuterFunction = arg;
+            function bar() {
+                console.log('bar');
+                console.log(variableInOuterFunction);
+                //accessing a variable from the outer scope
+            }
+            bar();
+            //call the local function to demonstrate
+            //that it has access to arg
+        }
+
+        outerFunction('hello closure!');
+        //this will log hello closure!!
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

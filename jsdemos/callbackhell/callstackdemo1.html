@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callstackdemo1</title>
+    <script>
+        function methodA() {
+            console.log('method A called');
+            methodB();
+        }
+        function methodB() {
+            console.log('method B called');
+            methodC();
+        }
+        function methodC() {
+            console.log('method C called');
+        }
+        function processThis() {
+            methodA();
+        }
+    </script>
+</head>
+
+<body onload="processThis()">
+
+</body>
+
+</html>

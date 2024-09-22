@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resolve, reject with values</title>
+    <script>
+        //This is a fake Http Request function
+        //it takes 1 second resolve or reject the promise,
+        //depending on the url that is passed in
+        //defining the fake API
+        const fakeRequest = (url) => {
+            return new Promise((resolve, reject) => {
+                //resolve,reject are callback for success and failure
+                setTimeout(() => {
+                    const pages = {
+                        '/users': [
+                            { id: 1, username: 'Bilbo' },
+                            { id: 5, username: 'Esmeralda' }
+                        ],
+                        '/about': 'This is the about page!'
+                    };
+                    const data = pages[url];
+                    if (data) {
+                        resolve({ status: 200, data });//resolve with a value!
+                    }
+                    else {
+                        error = url + " does not exist";
+                        reject({ status: 404, error });//reject with a value!
+                    }
+                }, 1000);
+            })
+        };
+
+        //calling the fake API
+        fakeRequest('/users')
+            .then((res) => {
+                console.log('Status Code', res.status);
+                console.log('Data', res.data);
+                console.log('REQUEST WORKED!!');
+            })
+            .catch((res) => {
+                console.log(res.status);
+                console.log(res.error);
+                console.log('REQUEST FAILED ');
+            })
+        fakeRequest('/dogs')
+            .then((res) => {
+                console.log('Status Code', res.status);
+                console.log('Data', res.data);
+                console.log('REQUEST WORKED!');
+            })
+            .catch((res) => {
+                console.log(res.status);
+                console.log(res.error);
+                console.log('REQUEST FAILED');
+            });
+        fakeRequest('/about')
+            .then((res) => {
+                console.log('Status Code', res.status);
+                console.log('Data', res.data);
+                console.log('REQUEST WORKED!!');
+            })
+            .catch((res) => {
+                console.log(res.status);
+                console.log(res.error);
+                console.log('REQUEST FAILED');
+            })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6_features1</title>
+    <script>
+        let resetArray = ['Cat1', 'Sat1', 'Pat1', 'Rat1', 'Hat1'];
+        let mainArray = ['Cat', 'Sat', 'Pat', 'Rat', 'Hat'];
+        let numberArray = [1, 2, 3, 4, 5];
+        let updatedArray = [];
+        //sorting an array
+        console.log('mainArray ' + mainArray);
+        mainArray.sort();
+        console.log('mainArray ' + mainArray);
+        console.log('updatedArray ' + updatedArray);
+        //mainArray=resetArray;//This will copy reference
+        //In JS, objects are copied by reference
+        //primitives are copied by value
+        //array is an object in Java Script
+        let array1 = new Array();
+        //..spread operator-we can use it with both arrays and objects
+        mainArray = [...resetArray];
+        //copying the contents of one array in to another array
+        console.log('mainArray ' + mainArray);
+
+        //reset
+        mainArray = [...resetArray];
+        //insert at first index using unshift()
+        console.log('mainArray reset ' + mainArray);
+        mainArray.unshift(1);
+        console.log('mainArray ' + mainArray);
+        //inserting multiple elements at first index using unshift()
+        mainArray.unshift('a', 'b', 'c');
+        console.log('mainArray ' + mainArray);
+
+        //insert at any index-0 using splice
+        mainArray.splice(0, 0, 100);
+        //here, splice has been used to insert an element, not update
+        //splice (arrayIndex,deleteCount,value to insert);
+        //splice can be used for insert, update, delete
+        console.log('mainArray ' + mainArray);
+
+        //insert at any index-5 using splice
+        mainArray.splice(5, 0, 'Maroon5');
+        console.log('mainArray ' + mainArray);
+
+        //append using splice, add at the end of the array
+        mainArray.splice(mainArray.length, 0, 'TIGER');
+        console.log('mainArray ' + mainArray);
+
+        //append using push function
+        mainArray.push('OrangeRed');
+        console.log('mainArray ' + mainArray);
+
+        //deleting TIGER and OrangeRed from the end of the array
+        mainArray.pop();
+
+        //splice for deletion-set deleteCount to one
+        //delete OrangeRed, 3rd argument is not required for deletion
+        mainArray.splice(mainArray.length - 1, 1);
+        console.log('mainArray ' + mainArray);
+
+        //delete 1 from the beginning of the array-using shift()
+        mainArray.shift();
+        console.log('mainArray ' + mainArray);
+
+        //delete a,b,c in one shot-using splice
+        mainArray.splice(0, 3);
+        console.log('mainArray ' + mainArray);
+
+        //delete element 1 using splice again, shift()
+        mainArray.splice(0, 1);
+        console.log('mainArray ' + mainArray);
+        mainArray = [...resetArray];
+        console.log('mainArray after reset' + mainArray);
+
+        //update the last element
+        mainArray.splice(mainArray.length - 1, 1, 'Hatrick');
+        console.log('mainArray ' + mainArray);
+
+        //update first element
+        mainArray.splice(0, 1, 'Catrina');
+        console.log('mainArray ' + mainArray);
+
+        //update Sat to Saturn,update at any index
+        mainArray.splice(1, 1, 'Saturn');
+        console.log('mainArray ' + mainArray);
+
+        //map,reduce,filter, forEach()-replacement for the regular for loop
+
+        let fruits = ['Banana', 'Apple', 'Orange', 'Mango'];
+
+        function display1(value, index, array) {
+            console.log('printed from display1');
+            console.log('Name ' + value + ' index ' + index);
+            console.log('array.length ' + array.length);
+        }
+
+        let display2 = (value, index) => {
+            console.log('printed from display2');
+            console.log('Name ' + value + ' index ' + index);
+        }
+
+        let display3 = value => console.log('Name ' + value);
+        //i want to perform the same task on every element of the aray
+
+        for (let i = 0; i < fruits.length; i++) {
+            console.log('printed from for loop');
+            console.log('Name ' + fruits[i]);
+        }
+
+        //The above for loop can be replaced with the below forEach
+        fruits.forEach(display3);
+
+        // fruits.forEach(){
+        //     for (let i = 0; i < fruits.length; i++) {
+        //         display3(fruits[i]);
+        //     }
+        // }
+
+
+        //we are passing a function to a function
+        function forEach(callback) {
+            for (let i = 0; i < callingArray.length; i++) {
+                //callback(callingArray[i], i, callingArray);
+                //callback(callingArray[i], i);
+                callback(callingArray[i]);
+            }
+        }
+        for (let i = 0; i < fruits.length; i++) {
+            console.log('printed from for loop');
+            console.log('Name ' + fruits[i]);
+        }
+
+        fruits.forEach(display2);//display1,display2,display3 are callbacks
+        fruits.forEach(display3);
+
+        let cars = ['BMW', 'Mercedes', 'Ford Mustang', 'VW'];
+        cars.forEach(display1);
+        cars.forEach(display2);
+        cars.forEach(display3);
+
+        //for each is used to perform operation on each element-it is read-only type operation
+        //map-perform operation on each element,
+        //then it will return a new array with modified elements
+        //filter-perform operation on each element,(it checks a condition)
+        //then return the new array containing filtered elements only
+        //reduce-aggregation or totaling, reduce the elements of an array to a single value
+        //string template-UI modification
+        function ChangeToUpperCase(value, index, array) {
+            return value.toUpperCase();
+        }
+        //map
+        let fruitUpperCase = fruits.map(ChangeToUpperCase);
+        console.log(fruits);
+        console.log(fruitUpperCase);
+
+        let fruitUpperCase2 = fruits.map(function (value) {
+            return value.toUpperCase();
+        });
+        console.log(fruitUpperCase2);
+        let fruitUpperCase3 = fruits.map((value) => value.toUpperCase());
+        console.log(fruitUpperCase3);
+
+        //reduce-aggregation or total
+        const marks = [88, 98, 87, 79, 66];
+        let totalMarks1 = (total, value, index, array) => {
+            return total + value;
+        }
+        let totalMarks2 = (total, value) => total + value;
+        let total1 = marks.reduce(totalMarks1);
+        console.log('total1 ' + total1);
+
+        let total2 = marks.reduce(totalMarks2);
+        console.log('total2 ' + total2);
+
+        let total3 = marks.reduce((total, value) => total + value);
+        console.log('total3 ' + total3);
+
+        marks.forEach(display1);
+        fruits.forEach(value => console.log('Name ' + value));
+        cars.forEach(value => console.log('Name ' + value));
+
+        //filter
+        const numbers = [];
+        for (let i = 0; i <= 100; i++) {
+            numbers.push(i);
+        }
+        let evenNumbers = numbers.filter((value) => value % 2 === 0);
+        console.log(evenNumbers);
+        let oddNumbers = numbers.filter((value) => value % 2 !== 0);
+        console.log(oddNumbers);
+
+        numbers.filter((value) => value % 2 === 0).forEach(display2);
+        numbers.filter((value) => value % 2 !== 0).forEach(display2);
+
+        //map, reduce, filter, forEach
+        //they don't change anything in the original array
+        //they make a copy of the original array
+        //make changes to the  copy
+
+        //map-map applies
+        //changes too a copy of all the elements and collects it in a new array and returns the new array to the caller
+        //reduce
+        //aggregation-copy of the array will be iterated over and aggregated
+        //filter
+        //a copy of the array will be made first,
+        //then a qualifying condition will be checked
+        //only elements that qualify will go to the next array
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

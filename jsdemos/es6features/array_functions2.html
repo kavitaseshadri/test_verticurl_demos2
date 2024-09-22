@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_function2</title>
+    <script>
+        //map,reduce,filter, forEach()-replacement for the regular for loop
+        //they all are higher order functions
+        //as they accept another function as an argument
+        //as they accept callbacks/callback function
+
+        var f1 = function () {
+            console.log('f1');
+        }
+        var f2 = () => {
+            console.log('f2');
+        }
+
+        function hof1(callback1, callback2) {
+            callback1();
+            callback2();
+        }
+
+        hof1(f1, f2);
+        hof1(function () {
+            console.log('spontaneous function1');
+        }, function () {
+            console.log('spontaneous function2');
+        });
+
+        let fruits = ['Banana', 'Apple', 'Orange', 'Mango'];
+
+        function display1(value, index, array) {
+            console.log('printed from display1');
+            console.log('Name ' + value + ' index ' + index);
+            console.log('array.length ' + array.length);
+        }
+        let display2 = (value, index) => {
+            console.log('printed from display2');
+            console.log('Name ' + value + ' index ' + index);
+        }
+
+        let display3 = value => console.log('Name ' + value);
+        //i want to perform the same task on every element of the aray
+
+        for (let i = 0; i < fruits.length; i++) {
+            console.log('printed from for loop');
+            console.log('Name ' + fruits[i]);
+        }
+
+        //iterate over an array-forEach
+        //modify the array as we iterate over it-map()
+        //qualify certain elements as we iterator over it-filter()
+        //aggregate elements as we iterate over it-reduce()
+        //forEach,map,reduce,filter-never modify the original array,
+        //instead they create a copy and modify that array, and return you that array
+
+
+        for (let i = 0; i < fruits.length; i++) {
+            console.log('printed from for loop');
+            console.log('Name ' + fruits[i]);
+        }
+
+        //forEach is the hof, display1,display2,display3 do the job, they are the callbacks
+        fruits.forEach(display1);
+        fruits.forEach(display2);//display1,display2,display3 are callbacks
+        fruits.forEach(display3);
+
+        let cars = ['BMW', 'Mercedes', 'Ford Mustang', 'VW'];
+        cars.forEach(display1);
+        cars.forEach(display2);
+        cars.forEach(display3);
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

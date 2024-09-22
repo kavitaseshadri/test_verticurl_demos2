@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments, Posts, Users-using axios1</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const processSocial = (type) => {
+            const option = type;
+            console.log(`https://jsonplaceholder.typicode.com/${option}`);
+            //when you use axios object to call any method, 
+            //you will immediately get a promise in return, not the results!
+
+            axios
+                .get(`https://jsonplaceholder.typicode.com/${option}`)
+                .then((response) => {
+                    console.log('printing response');
+                    console.log(response);
+                    console.log('printing response data');
+                    console.log(response.data);
+                    console.log('printing stringify response data');
+                    console.log(JSON.stringify(response.data));
+                    document.getElementById('feed').innerText = JSON.stringify(response.data);
+                })
+                .catch((err) => {
+                    console.log('SOMETHING WENT WRONG WITH FETCHING DATA!');
+                    console.log(err);//HTTP status code will be printed here
+                })
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <button onclick="processSocial('comments')">Comments</button>
+    <button onclick="processSocial('posts')">Posts</button>
+    <button onclick="processSocial('users')">Users</button>
+    <pre id="feed"></pre>
+</body>
+
+</html>

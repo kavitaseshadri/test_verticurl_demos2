@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async_keyword</title>
+    <script>
+        //async and await are sugar coating or syntactical sugar of promise
+        //REGULAR function returns a string
+        //async keyword will be internally converted into a promise
+        //one when you are the creator of an api
+        //when you are calling an api that is async or uses Promises
+        //as an api creator how to use async keyword as a replacement for promise
+        //step1 illustration
+        // function greet() {
+        //     return 'hello!!!';
+        // }
+        // console.log(greet());
+        //step2 illustration
+        async function greet() {
+            return 'hello!!!';
+        }
+        console.log(greet());
+        //step3 illustration
+        //when I call greet, here I won't see the result, 
+        //instead what I get is a promise
+        const promise = greet();
+        //step4 illustration
+        greet()
+            .then((val) => {
+                console.log('PROMISE resolved with ', val);
+            })
+        //greet function doesn't have a failure scenario
+
+        //step5 illustration
+        async function add(x, y) {
+            if (typeof x !== 'number' || typeof y !== 'number') {
+                throw 'X and Y must be numbers';
+            }
+            return x + y;
+        }
+
+        add(2, 3)
+            .then((response) => {
+                console.log('promise resolved with ' + response);
+            })
+            .catch((err) => {
+                console.log('promise rejected with ' + err);
+            })
+
+        add('a', 3)
+            .then((response) => {
+                console.log('promise resolved with ' + response);
+            })
+            .catch((err) => {
+                console.log('promise rejected with ' + err);
+            })
+
+
+        //Equivalent of non-async function...
+        //step6 illustration
+        function sum(x, y) {
+            return new Promise((resolve, reject) => {
+                if (typeof x !== 'number' || typeof y !== 'number') {
+                    reject('X and Y must be numbers');
+                }
+                resolve(x + y);
+            })
+        }
+
+        sum(4, 5)
+            .then((response) => {
+                console.log('promise resolved with ' + response);
+            })
+            .catch((err) => {
+                console.log('promise rejected with ' + err);
+            })
+
+        sum('b', 10)
+            .then((response) => {
+                console.log('promise resolved with ' + response);
+            })
+            .catch((err) => {
+                console.log('promise rejected with ' + err);
+            })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

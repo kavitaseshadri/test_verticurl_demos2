@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6_features2</title>
+    <script>
+        //array destructuring
+        const vehicles = ['mustang', 'f0150', 'expedition'];
+        //old way of accessing array elements
+        const car = vehicles[0];
+        const truck = vehicles[1];
+        const suv = vehicles[2];
+        //we are accessing it sequentially
+        //normal for loop will make you access the entire array in  particular
+        //we are trying to break the sequence, and we want to get to what we need quickly
+        console.log('car ' + car + ' truck ' + truck + ' suv ' + suv);
+        //array destructuring
+        const [car2, truck2, suv2] = vehicles;
+        console.log('car2 ' + car2 + ' truck2 ' + truck2 + ' suv2 ' + suv2);
+        //more useful when you want to jump to certain specific elements
+        //this is index based
+        const [car3, , suv3] = vehicles;
+        console.log('car2 ' + car3 + ' suv3 ' + suv3);
+        let fruits = ['Apple', 'Banana', 'Watermelon', 'Kiwi', 'Dragon Fruits'];
+        const [, , , , f0] = fruits;
+        console.log('f0 ' + f0);
+        const [f1, , f3, , f5] = fruits;
+        console.log('f1 ' + f1 + ' f3 ' + f3 + ' f5 ' + f5);
+
+        function getFruits() {
+            return fruits;
+        }
+
+        console.log('No of fruits in the array ' + getFruits().length);
+        const [fa, , , fb, fc] = getFruits();
+        console.log('fa ' + fa + ' fb ' + fb + ' fc ' + fc);
+
+        function selectedNo() {
+            return [100, 200, 300];
+        }
+
+        const [n1, , n3] = selectedNo();
+        console.log('n1 ' + n1 + ' n3 ' + n3);
+
+        //rest operator ... is used as a method argument
+        //capture variable number of arguments in a function
+        let tempFunc = (n1, n2, ...capture) => {
+            //it will do something mathematical like aggregation
+            //we will implement this using forEach later
+            console.log('tempFunc');
+            console.log('n1 ' + n1 + ' n2 ' + n2 + ' capture ' + capture);
+            console.log('capture length ' + capture.length);
+        }
+
+        tempFunc(100, 200);
+        tempFunc(300, 400, 5);
+        tempFunc(11, 22, 1, 2, 3, 4, 5, 6, 7, 8);
+
+        const numbers = [10, 11, 12, 14, 15];
+        tempFunc(600, 700, ...numbers);//the third argument is being passed through spread operation
+        //tempFunc(600, 700, 10, 11, 12, 14, 15);//the third argument is being passed through spread operation
+
+
+        let tempFunc2 = (...capture) => {
+            //we will implement this using forEach later
+            console.log('tempFunc2');
+        }
+        tempFunc2(11, 22, 1, 2, 3, 4, 5, 6, 7, 8);
+        tempFunc2(11, 22, 1);
+
+        //spread operator with arrays   
+        let a1 = [1, 2, 3];
+        console.log(a1);
+        let b1 = a1;//reference copy
+        console.log(b1);
+        a1.push(101);
+        console.log(a1);
+        console.log(b1);
+        b1.push(55);
+        console.log(a1);
+        console.log(b1);
+        console.log(a1 === b1);
+
+        let copy1 = [...a1];//spread operator to copy the elements of one array into another
+        console.log(a1);
+        console.log(b1);
+        console.log(copy1);
+        a1.push(500);
+        copy1.push(1000);
+        console.log(a1);
+        console.log(b1);
+        console.log(copy1);
+
+        let array1 = [1, 2, 3, 4, 5];
+        let array2 = [...array1, 5000];
+        console.log(array1);
+        console.log(array2);
+        //spreading elements, then appending a new element
+        let array3 = [3000, 2000, 1000, ...array1];
+        console.log(array1);
+        console.log(array2);
+        console.log(array3);
+        //inserting a new element at index 0,then spreading the elements of the array
+        let array4 = [...array1, 100, 200, 300, ...array3];
+        console.log(array1);
+        console.log(array2);
+        console.log(array3);
+        console.log(array4);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array_functions1</title>
+    <script>
+        var foo = [];
+        var bar = [];
+        foo.push(1);//add at the end, append
+        console.log(foo);
+        console.log('foo ' + foo);//prints [1]
+
+        foo.unshift(2);//add to the top, insert at index 1
+        console.log('foo ' + foo);
+        console.log(foo);//prints[2,1];
+
+        //arrays are zero index based
+        console.log('foo[0] ' + foo[0]);//prints 1
+        console.log('foo[1] ' + foo[1]);//prints 2
+
+        var letters = ['a', 'b', 'c', 'd', 'd'];
+        console.log(letters);
+        console.log('letters ' + letters);
+
+        var strings = ['have', 'a', 'good', 'day'];
+        console.log(strings);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

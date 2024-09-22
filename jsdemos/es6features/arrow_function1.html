@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrow_function1.html</title>
+    <script>
+        //shortest possible syntax for defining a function
+        //this pointer behaves differently inside the arrow function
+        //compared to a regular function
+        //fastest, very highly efficient syntax
+        //ES6-2015
+        //in javascript a string can be written in single quotes
+        //or double quotes
+        function hello() {
+            return 'hello world';
+        }
+        console.log(hello());
+
+        var f1 = function () {
+            return 'hello world2';
+        }
+        console.log(f1());
+
+        let a1 = () => {
+            console.log('first we will do something');
+            return 'hello world3';
+        }
+        //if you have more than one line in your arrow function
+        //then put those instruction in {}
+        console.log(a1());
+
+        let a2 = () => 'hello world4';
+        console.log(a2());
+        //if you have only one line in your arrow function
+        //then you can drop the {}
+
+        let sum1 = function (n1, n2) {
+            console.log('we are adding ' + n1 + ' and ' + n2);
+            return n1 + n2;
+        }
+        console.log(sum1(1, 2));
+
+        let sum2 = (n1, n2) => {
+            console.log('we are adding ' + n1 + ' and ' + n2);
+            return n1 + n2;
+        }
+        console.log(sum2(2, 3));
+
+        let sum3 = (n1, n2) => n1 + n2;
+        console.log(sum3(4, 5));
+
+        let multiplier1 = (n1) => n1 * 5;
+        console.log(multiplier1(5));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callbackhell4</title>
+    <script>
+        function setUp() {
+            const btn = document.querySelector('button');
+            moveX(btn, 600, 2000);
+        }
+        const moveX = (element, amount, delay) => {
+            setTimeout(() => {
+                element.style.transform = `translateX(${amount}px)`;
+            }, delay)
+        }
+    </script>
+</head>
+
+<body onload="setUp()">
+    <h1>Something will show up soon!!</h1>
+    <button id="btn1">Move Me!!</button>
+</body>
+
+</html>

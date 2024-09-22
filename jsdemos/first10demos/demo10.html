@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo10</title>
+    <script>
+        var foo = {
+            bar: 123,
+            bas: [1, 2, 3],
+        }
+        console.log(foo);
+        console.log(foo.bar);
+        console.log(foo.bas);
+        //print the individuals values of bas by running a loop
+        //use a regular boring for loop
+        //i don't need the new operator to declare an array
+
+        var foo2 = {
+            bar: 123,
+            bas: [
+                {
+                    qux: 1,
+                },
+                {
+                    qux: 2,
+
+                }, {
+                    qux: 3,
+                }
+            ]
+        }
+
+        console.log(foo2.bar);//123
+        console.log(foo2.bas[0].qux);//1
+        console.log(foo2.bas[2].qux);//3
+
+        //run the boring old for loop
+        //to print all the nested properties
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

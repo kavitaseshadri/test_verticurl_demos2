@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6_string_literal</title>
+    <script>
+        const prepContent = () => {
+            let words = ['quick', 'brown', 'fox', 'jumps', 'on', 'the', 'lazy', 'dog'];
+            let htmlElement = `<ul>`;
+            //back ticks, this is the key before numeric one key on your keyboard
+            for (let i = 0; i < words.length; i++) {
+                htmlElement += `<li>${words[i]}</li>`;
+                //writing this in single or double quotes <li>${words[i]}</li> would have made JS treat this a string
+                //it lets you mix variables with html element, and helps your produce dynamic html content!
+                console.log(htmlElement);
+            }
+            htmlElement += `</ul>`;
+            console.log(htmlElement);
+            document.getElementById('destination').innerHTML = htmlElement;
+        }
+    </script>
+</head>
+
+<body onload="prepContent()">
+    <div id="destination"></div>
+</body>
+
+</html>
